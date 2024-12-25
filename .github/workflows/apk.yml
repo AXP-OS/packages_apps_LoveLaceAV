@@ -60,14 +60,14 @@ jobs:
         echo "git_sha_short=$git_sha_short" >> $GITHUB_ENV
         echo "APP version is: $OVER ($git_sha_short)"
 
-    # https://github.com/r0adkll/sign-android-release
-    - name: Sign apks
+    # https://github.com/marketplace/actions/sign-android-releases-apk
+    - name: Sign APK
       id: signAPK
-      uses: r0adkll/sign-android-release@master
+      uses: NoCrypt/sign-android@main
       with:
-        releaseDirectory: apks
-        signingKeyBase64: ${{ secrets.APK_SIGNING_KEY_64 }}
-        alias: ${{ secrets.APK_ALIAS }}
+        releaseDir: apks
+        signingKey: ${{ secrets.APK_SIGNING_KEY_64 }}
+        keyAlias: ${{ secrets.APK_ALIAS }}
         keyStorePassword: ${{ secrets.APK_KEY_STORE_PASSWORD }}
         keyPassword: ${{ secrets.APK_KEY_PASSWORD }}
       env:
