@@ -83,7 +83,7 @@ jobs:
       # https://github.com/crowbarmaster/GH-Automatic-Releases
       with:
         repo_token: "${{ secrets.AXP_GITHUB_TOKEN }}"
-        automatic_release_tag: "${{ env.OPENEUICC_VERSION }}"
+        automatic_release_tag: "${{ env.APP_VERSION }}"
         prerelease: false
         title: "${{ env.APP_VERSION }} (${{ env.git_sha_short }})"
         files: |
