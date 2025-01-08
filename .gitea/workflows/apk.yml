@@ -40,7 +40,7 @@ jobs:
       uses: android-actions/setup-android@v3
       with:
         packages: 'build-tools'
-        cmdline-tools-version: "16.0"
+        cmdline-tools-version: 12266719 # adjust BUILD_TOOL_VERSION in next task when changing
 
     # https://github.com/r0adkll/sign-android-release/issues/84#issuecomment-1885690080
     - name: "Get & set app and build variables"
