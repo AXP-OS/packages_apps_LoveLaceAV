@@ -46,9 +46,9 @@ jobs:
     - name: "Get & set app and build variables"
       shell: bash
       run: |
-        BUILD_TOOL_VERSION=$(ls /root/.android/sdk/build-tools | tail -n 1)
-        echo "BUILD_TOOL_VERSION=$BUILD_TOOL_VERSION" >> $GITHUB_ENV
-        echo Last build tool version is: $BUILD_TOOL_VERSION
+        #BUILD_TOOL_VERSION=$(ls /root/.android/sdk/build-tools | tail -n 1)
+        #echo "BUILD_TOOL_VERSION=$BUILD_TOOL_VERSION" >> $GITHUB_ENV
+        #echo Last build tool version is: $BUILD_TOOL_VERSION
         OVER=$(date +%Y.%m.%d)
         [ -z "$OVER" ] && echo "ERROR: empty version detected" && exit 3
         echo "APP_VERSION=$OVER" >> $GITHUB_ENV
