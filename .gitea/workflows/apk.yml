@@ -22,7 +22,7 @@ jobs:
     - name: set up JDK
       uses: actions/setup-java@v3
       with:
-        java-version: '21'
+        java-version: '18'
         distribution: 'temurin'
         cache: gradle
 
@@ -60,8 +60,8 @@ jobs:
       run: |
         mkdir apks
         rm -rf app/build/outputs/apk/
-        #./gradlew --no-daemon --stacktrace :app:assembleRelease
-        gradle --no-daemon :app:assembleRelease
+        ./gradlew --no-daemon :app:assembleRelease
+        #gradle --no-daemon :app:assembleRelease
         mv -v app/build/outputs/apk/release/*.apk apks/${{vars.APK_NAME_ANTIMALWARE}}.apk
 
     # https://github.com/marketplace/actions/sign-android-releases-apk
