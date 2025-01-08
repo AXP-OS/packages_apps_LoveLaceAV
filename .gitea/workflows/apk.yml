@@ -1,0 +1,87 @@
+name: Build APK
+
+on:
+  #push:
+  #  branches:
+  #    - main
+  pull_request:
+    types:
+      - closed
+  workflow_dispatch:  # button shown only when in default branch
+
+jobs:
+  build:
+    if: github.event.pull_request.merged == true || github.event_name == 'push'
+    runs-on: docker-node-latest
+
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        submodules: true
+
+    - name: set up JDK
+      uses: actions/setup-java@v3
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+        cache: gradle
+
+    - name: Grant execute permission for gradlew
+      run: chmod +x gradlew
+
+    - name: Setup Gradle Cache
+      uses: gradle/gradle-build-action@v2
+      with:
+        gradle-home-cache-cleanup: true
+
+    - name: Build Release APK
+      run: |
+        mkdir apks
+        rm -rf app/build/outputs/apk/
+        ./gradlew --no-daemon --stacktrace :app:assembleRelease
+        mv -v app/build/outputs/apk/release/*.apk apks/${{vars.APK_NAME_ANTIMALWARE}}.apk
+
+    # https://github.com/r0adkll/sign-android-release/issues/84#issuecomment-1885690080
+    - name: "Get & set app and build variables"
+      shell: bash
+      run: |
+        BUILD_TOOL_VERSION=$(ls /usr/local/lib/android/sdk/build-tools/ | tail -n 1)
+        echo "BUILD_TOOL_VERSION=$BUILD_TOOL_VERSION" >> $GITHUB_ENV
+        echo Last build tool version is: $BUILD_TOOL_VERSION
+        OVER=$(date +%Y.%m.%d)
+        [ -z "$OVER" ] && echo "ERROR: empty version detected" && exit 3
+        echo "APP_VERSION=$OVER" >> $GITHUB_ENV
+        git_sha_short=$(git rev-parse --short "$GITHUB_SHA")
+        echo "git_sha_short=$git_sha_short" >> $GITHUB_ENV
+        echo "APP version is: $OVER ($git_sha_short)"
+
+    # https://github.com/marketplace/actions/sign-android-releases-apk
+    - name: Sign APK
+      id: signAPK
+      uses: NoCrypt/sign-android@main
+      with:
+        releaseDir: apks
+        signingKey: ${{ secrets.APK_SIGNING_KEY_64 }}
+        keyAlias: ${{ secrets.APK_ALIAS }}
+        keyStorePassword: ${{ secrets.APK_KEY_STORE_PASSWORD }}
+        keyPassword: ${{ secrets.APK_KEY_PASSWORD }}
+      env:
+        BUILD_TOOLS_VERSION: ${{ env.BUILD_TOOL_VERSION }}
+
+    - name: Hash release APK
+      run: |
+        cd apks
+        sha512sum ${{vars.APK_NAME_ANTIMALWARE}}-signed.apk > ${{vars.APK_NAME_ANTIMALWARE}}-signed.apk.sha512
+        
+    - name: Create Release
+      uses: "crowbarmaster/GH-Automatic-Releases@latest"
+      # https://github.com/crowbarmaster/GH-Automatic-Releases
+      with:
+        repo_token: "${{ secrets.AXP_GITHUB_TOKEN }}"
+        automatic_release_tag: "${{ env.APP_VERSION }}"
+        prerelease: false
+        title: "${{ env.APP_VERSION }} (${{ env.git_sha_short }})"
+        files: |
+          ${{ github.WORKSPACE }}/apks/${{vars.APK_NAME_ANTIMALWARE}}-signed.apk
+          ${{ github.WORKSPACE }}/apks/${{vars.APK_NAME_ANTIMALWARE}}-signed.apk.sha512
+
