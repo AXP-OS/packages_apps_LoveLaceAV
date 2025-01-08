@@ -1,7 +1,7 @@
 name: Build APK
 
 on:
-  #push:
+  push:
   #  branches:
   #    - main
   pull_request:
@@ -11,7 +11,7 @@ on:
 
 jobs:
   build:
-    if: github.event.pull_request.merged == true || github.event_name == 'push'
+    #if: github.event.pull_request.merged == true || github.event_name == 'push'
     runs-on: docker-node-latest
 
     steps:
