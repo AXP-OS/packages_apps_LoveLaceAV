@@ -38,13 +38,17 @@ jobs:
     - name: Setup Android SDK
       # https://github.com/android-actions/setup-android
       uses: android-actions/setup-android@v3
+      with:
+        packages: 'build-tools'
+        cmdline-tools-version: "16.0"
 
     # https://github.com/r0adkll/sign-android-release/issues/84#issuecomment-1885690080
     - name: "Get & set app and build variables"
       shell: bash
       run: |
-        BUILD_TOOL_VERSION=$(ls /usr/local/lib/android/sdk/build-tools/ | tail -n 1)
-        echo "BUILD_TOOL_VERSION=$BUILD_TOOL_VERSION" >> $GITHUB_ENV
+        #BUILD_TOOL_VERSION=$(ls /usr/local/lib/android/sdk/build-tools/ | tail -n 1)
+        #echo "BUILD_TOOL_VERSION=$BUILD_TOOL_VERSION" >> $GITHUB_ENV
+        echo "BUILD_TOOL_VERSION=16.0" >> $GITHUB_ENV
         echo Last build tool version is: $BUILD_TOOL_VERSION
         OVER=$(date +%Y.%m.%d)
         [ -z "$OVER" ] && echo "ERROR: empty version detected" && exit 3
