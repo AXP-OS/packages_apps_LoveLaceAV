@@ -35,6 +35,10 @@ jobs:
         gradle-version: "current"
         gradle-home-cache-cleanup: true
 
+    - name: Setup Android SDK
+      # https://github.com/android-actions/setup-android
+      uses: android-actions/setup-android@v3
+
     # https://github.com/r0adkll/sign-android-release/issues/84#issuecomment-1885690080
     - name: "Get & set app and build variables"
       shell: bash
