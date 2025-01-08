@@ -29,17 +29,11 @@ jobs:
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
 
-    - name: Setup Gradle Cache
-      uses: gradle/gradle-build-action@v2
+    - name: Setup Gradle
+      uses: gradle/actions/setup-gradle@v4
       with:
+        gradle-version: "current"
         gradle-home-cache-cleanup: true
-
-    - name: Build Release APK
-      run: |
-        mkdir apks
-        rm -rf app/build/outputs/apk/
-        ./gradlew --no-daemon --stacktrace :app:assembleRelease
-        mv -v app/build/outputs/apk/release/*.apk apks/${{vars.APK_NAME_ANTIMALWARE}}.apk
 
     # https://github.com/r0adkll/sign-android-release/issues/84#issuecomment-1885690080
     - name: "Get & set app and build variables"
@@ -54,6 +48,13 @@ jobs:
         git_sha_short=$(git rev-parse --short "$GITHUB_SHA")
         echo "git_sha_short=$git_sha_short" >> $GITHUB_ENV
         echo "APP version is: $OVER ($git_sha_short)"
+
+    - name: Build Release APK
+      run: |
+        mkdir apks
+        rm -rf app/build/outputs/apk/
+        ./gradlew --no-daemon --stacktrace :app:assembleRelease
+        mv -v app/build/outputs/apk/release/*.apk apks/${{vars.APK_NAME_ANTIMALWARE}}.apk
 
     # https://github.com/marketplace/actions/sign-android-releases-apk
     - name: Sign APK
