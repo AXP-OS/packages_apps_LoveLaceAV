@@ -8,8 +8,9 @@ on:
   #    - main
   workflow_dispatch:  # button shown only when in default branch
 
-permissions:
-  contents: write # allow creating releases
+# NOT implemented in Gitea!
+#permissions:
+#  contents: write # allow creating releases
 
 jobs:
   build:
@@ -17,17 +18,6 @@ jobs:
     runs-on: docker-node-latest
 
     steps:
-
-
-
-    - name: TEST
-      uses: akkuman/gitea-release-action@v1
-      # https://github.com/akkuman/gitea-release-action
-      with:
-        token: "${{ secrets.TEMP_ALL_RW }}"
-        prerelease: false
-
-
 
     - uses: actions/checkout@v4
       with:
@@ -101,7 +91,7 @@ jobs:
         echo "branch=${REF_NAME}" >> "$GITHUB_OUTPUT"
         
     - name: Create Release
-      uses: akkuman/gitea-release-action@v1
+      uses: https://gitea.com/actions/gitea-release-action@v1
       # https://github.com/akkuman/gitea-release-action
       with:
         token: "${{ secrets.LOCAL_TOKEN_REPO_RW }}"
