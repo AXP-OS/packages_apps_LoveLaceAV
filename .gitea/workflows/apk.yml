@@ -24,7 +24,7 @@ jobs:
       uses: akkuman/gitea-release-action@v1
       # https://github.com/akkuman/gitea-release-action
       with:
-        token: "${{ secrets.LOCAL_TOKEN_REPO_RW }}"
+        token: "${{ secrets.TEMP_ALL_RW }}"
         prerelease: false
 
 
