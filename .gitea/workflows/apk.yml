@@ -19,15 +19,17 @@ jobs:
 
     steps:
 
-    - name: Create Release
-      uses: https://gitea.com/actions/gitea-release-action@v1
-      # https://github.com/akkuman/gitea-release-action
-      with:
-        token: "${{ secrets.LOCAL_TOKEN_REPO_RW }}"
-
     - uses: actions/checkout@v4
       with:
         submodules: true
+
+    - name: Create Release
+      uses: uses: softprops/action-gh-release@v2
+      # https://github.com/akkuman/gitea-release-action
+      with:
+        generate_release_notes: true
+        body: here some text
+        token: "${{ secrets.LOCAL_TOKEN_REPO_RW }}"
 
     - name: set up JDK
       uses: actions/setup-java@v3
