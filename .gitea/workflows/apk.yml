@@ -24,25 +24,12 @@ jobs:
         submodules: true
 
     - name: Create Release
-      uses: janheinrichmerker/action-github-changelog-generator@v2.3
-      with:
-        token: "${{ secrets.LOCAL_TOKEN_REPO_RW }}"
-        githubSite: "https://code.binbash.rocks:8443"
-        githubApi: "https://code.binbash.rocks:8443/api/v1"
-      #uses: softprops/action-gh-release@v2
-#      with:
-#        generate_release_notes: true
-#        body: here some text
-#        token: "${{ secrets.LOCAL_TOKEN_REPO_RW }}"
-#        make_latest: true
-
-
-#      uses: "crowbarmaster/GH-Automatic-Releases@latest"
+      uses: "crowbarmaster/GH-Automatic-Releases@latest"
       # https://github.com/crowbarmaster/GH-Automatic-Releases
-#      with:
-#        repo_token: "${{ secrets.LOCAL_TOKEN_REPO_RW }}"
-#        automatic_release_tag: "2025.1.9"
-#        prerelease: false
+      with:
+        repo_token: "${{ secrets.LOCAL_TOKEN_REPO_RW }}"
+ #       automatic_release_tag: "2025.1.9"
+        prerelease: false
 
     - name: set up JDK
       uses: actions/setup-java@v3
