@@ -24,7 +24,7 @@ jobs:
         submodules: true
 
     - name: Create Release
-      uses: uses: softprops/action-gh-release@v2
+      uses: softprops/action-gh-release@v2
       # https://github.com/akkuman/gitea-release-action
       with:
         generate_release_notes: true
