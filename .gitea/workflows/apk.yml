@@ -24,12 +24,12 @@ jobs:
         submodules: true
 
     - name: Create Release
-      uses: softprops/action-gh-release@v2
-      # https://github.com/akkuman/gitea-release-action
+      uses: "crowbarmaster/GH-Automatic-Releases@latest"
+      # https://github.com/crowbarmaster/GH-Automatic-Releases
       with:
-        generate_release_notes: true
-        body: here some text
-        token: "${{ secrets.LOCAL_TOKEN_REPO_RW }}"
+        repo_token: "${{ secrets.LOCAL_TOKEN_REPO_RW }}"
+        automatic_release_tag: latest
+        prerelease: false
 
     - name: set up JDK
       uses: actions/setup-java@v3
