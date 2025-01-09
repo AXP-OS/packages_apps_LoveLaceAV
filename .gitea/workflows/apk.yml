@@ -4,10 +4,10 @@ on:
   push:
   #  branches:
   #    - main
-  pull_request:
-    types:
-      - closed
   workflow_dispatch:  # button shown only when in default branch
+
+permissions:
+  contents: write # allow creating releases
 
 jobs:
   build:
