@@ -19,6 +19,12 @@ jobs:
 
     steps:
 
+    - name: Create Release
+      uses: https://gitea.com/actions/gitea-release-action@v1
+      # https://github.com/akkuman/gitea-release-action
+      with:
+        token: "${{ secrets.TEST_TOKEN }}"
+
     - uses: actions/checkout@v4
       with:
         submodules: true
