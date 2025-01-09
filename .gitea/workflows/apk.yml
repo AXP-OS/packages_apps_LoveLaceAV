@@ -2,6 +2,7 @@ name: Build APK
 
 on:
   push:
+    tags:
   #  branches:
   #    - main
   workflow_dispatch:  # button shown only when in default branch
@@ -15,6 +16,18 @@ jobs:
     runs-on: docker-node-latest
 
     steps:
+
+
+
+    - name: TEST
+      uses: akkuman/gitea-release-action@v1
+      # https://github.com/akkuman/gitea-release-action
+      with:
+        token: "${{ secrets.LOCAL_TOKEN_REPO_RW }}"
+        prerelease: false
+
+
+
     - uses: actions/checkout@v4
       with:
         submodules: true
