@@ -87,15 +87,13 @@ jobs:
         echo "branch=${REF_NAME}" >> "$GITHUB_OUTPUT"
         
     - name: Create Release
-      run: |
-          
-      uses: "crowbarmaster/GH-Automatic-Releases@latest"
-      # https://github.com/crowbarmaster/GH-Automatic-Releases
+      uses: "gitea/gitea-release-action@v1"
+      # https://gitea.com/actions/gitea-release-action
       with:
-        repo_token: "${{ secrets.LOCAL_TOKEN_REPO_RW }}"
-        automatic_release_tag: ${{ env.APP_VERSION }}
+        token: "${{ secrets.LOCAL_TOKEN_REPO_RW }}"
+        tag_name: ${{ env.APP_VERSION }}
         prerelease: false
-        title: "${{ env.APP_VERSION }} (${{ env.git_sha_short }})"
+        name: "${{ env.APP_VERSION }} (${{ env.git_sha_short }})"
         files: |
           ${{ github.WORKSPACE }}/apks/${{vars.APK_NAME_ANTIMALWARE}}-signed.apk
           ${{ github.WORKSPACE }}/apks/${{vars.APK_NAME_ANTIMALWARE}}-signed.apk.sha512
