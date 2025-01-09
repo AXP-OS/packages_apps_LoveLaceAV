@@ -19,11 +19,11 @@ jobs:
 
     steps:
 
-  #  - name: Create Release
-  #    uses: https://gitea.com/actions/gitea-release-action@v1
-  #    # https://github.com/akkuman/gitea-release-action
-  #    with:
-  #      token: "${{ secrets.TEST_TOKEN }}"
+    - name: Create Release
+      uses: https://gitea.com/actions/gitea-release-action@v1
+      # https://github.com/akkuman/gitea-release-action
+      with:
+        token: "${{ secrets.LOCAL_TOKEN_REPO_RW }}"
 
     - uses: actions/checkout@v4
       with:
