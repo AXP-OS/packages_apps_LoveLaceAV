@@ -87,8 +87,8 @@ jobs:
         echo "branch=${REF_NAME}" >> "$GITHUB_OUTPUT"
         
     - name: Create Release
-      uses: actions/gitea-release-action@v1
-      # https://gitea.com/actions/gitea-release-action
+      uses: akkuman/gitea-release-action@v1
+      # https://github.com/akkuman/gitea-release-action
       with:
         token: "${{ secrets.LOCAL_TOKEN_REPO_RW }}"
         tag_name: ${{ env.APP_VERSION }}
