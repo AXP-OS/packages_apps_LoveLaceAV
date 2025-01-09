@@ -3,7 +3,7 @@ name: Build APK
 on:
   push:
     tags:
-      - 20**
+      - v20**
   #  branches:
   #    - main
   workflow_dispatch:  # button shown only when in default branch
