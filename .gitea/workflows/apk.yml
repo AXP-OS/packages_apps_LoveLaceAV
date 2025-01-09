@@ -28,7 +28,7 @@ jobs:
       # https://github.com/crowbarmaster/GH-Automatic-Releases
       with:
         repo_token: "${{ secrets.LOCAL_TOKEN_REPO_RW }}"
-        automatic_release_tag: latest
+        automatic_release_tag: "2025.01.09"
         prerelease: false
 
     - name: set up JDK
