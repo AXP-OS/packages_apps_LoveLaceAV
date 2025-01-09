@@ -77,17 +77,23 @@ jobs:
       env:
         BUILD_TOOLS_VERSION: ${{ env.BUILD_TOOL_VERSION }}
 
-    - name: Hash release APK
+    - name: Prep release
       run: |
         cd apks
         sha512sum ${{vars.APK_NAME_ANTIMALWARE}}-signed.apk > ${{vars.APK_NAME_ANTIMALWARE}}-signed.apk.sha512
+
+        REF_NAME=$(echo "${{ github.ref }}" | sed -e 's/refs\/heads\///' -e 's/refs\/tags\/v//' -e 's/release\/v//')
+        echo "Cleaned name is ${REF_NAME}"
+        echo "branch=${REF_NAME}" >> "$GITHUB_OUTPUT"
         
     - name: Create Release
+      run: |
+          
       uses: "crowbarmaster/GH-Automatic-Releases@latest"
       # https://github.com/crowbarmaster/GH-Automatic-Releases
       with:
-        repo_token: "${{ secrets.AXP_GITHUB_TOKEN }}"
-        automatic_release_tag: "${{ env.APP_VERSION }}"
+        repo_token: "${{ secrets.LOCAL_TOKEN_REPO_RW }}"
+        automatic_release_tag: ${{ env.APP_VERSION }}
         prerelease: false
         title: "${{ env.APP_VERSION }} (${{ env.git_sha_short }})"
         files: |
