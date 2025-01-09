@@ -24,12 +24,18 @@ jobs:
         submodules: true
 
     - name: Create Release
-      uses: "crowbarmaster/GH-Automatic-Releases@latest"
-      # https://github.com/crowbarmaster/GH-Automatic-Releases
+      uses: softprops/action-gh-release@v2
       with:
-        repo_token: "${{ secrets.LOCAL_TOKEN_REPO_RW }}"
-        automatic_release_tag: "2025.1.9"
-        prerelease: false
+        generate_release_notes: true
+        body: here some text
+        token: "${{ secrets.LOCAL_TOKEN_REPO_RW }}"
+
+#      uses: "crowbarmaster/GH-Automatic-Releases@latest"
+      # https://github.com/crowbarmaster/GH-Automatic-Releases
+#      with:
+#        repo_token: "${{ secrets.LOCAL_TOKEN_REPO_RW }}"
+#        automatic_release_tag: "2025.1.9"
+#        prerelease: false
 
     - name: set up JDK
       uses: actions/setup-java@v3
