@@ -28,7 +28,7 @@ jobs:
         submodules: true
 
     - name: Create Release
-      uses: "crowbarmaster/GH-Automatic-Releases@latest"
+      uses: "https://code.binbash.rocks:8443/Android/gitea-release@main"
       # https://github.com/crowbarmaster/GH-Automatic-Releases
       with:
         repo_token: "${{ secrets.LOCAL_TOKEN_REPO_RW }}"
