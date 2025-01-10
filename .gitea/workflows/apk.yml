@@ -27,18 +27,6 @@ jobs:
       with:
         submodules: true
 
-    - name: "Set env variables"
-      shell: bash
-      run: echo "GITHUB_API_URL='https://code.binbash.rocks:8443/api/v1'" >> $GITHUB_ENV
-
-    - name: Create Release
-      uses: "https://code.binbash.rocks:8443/Android/gitea-release@main"
-      # https://github.com/crowbarmaster/GH-Automatic-Releases
-      with:
-        repo_token: "${{ secrets.LOCAL_TOKEN_REPO_RW }}"
-        prerelease: false
-        generate_notes: true
-
     - name: set up JDK
       uses: actions/setup-java@v3
       with:
@@ -104,20 +92,29 @@ jobs:
         REF_NAME=$(echo "${{ github.ref }}" | sed -e 's/refs\/heads\///' -e 's/refs\/tags\/v//' -e 's/release\/v//')
         echo "Cleaned name is ${REF_NAME}"
         echo "branch=${REF_NAME}" >> "$GITHUB_OUTPUT"
-        
+
     - name: Create Release
-      uses: "crowbarmaster/GH-Automatic-Releases@latest"
-      # https://github.com/crowbarmaster/GH-Automatic-Releases
+      uses: "https://code.binbash.rocks:8443/Android/gitea-release@main"
+      # https://code.binbash.rocks:8443/Android/gitea-release
       with:
         repo_token: "${{ secrets.LOCAL_TOKEN_REPO_RW }}"
-        #automatic_release_tag: latest
         prerelease: false
         generate_notes: true
-        title: "${{ env.APP_VERSION }} (${{ env.git_sha_short }})"
         files: |
           ${{ github.WORKSPACE }}/apks/${{vars.APK_NAME_ANTIMALWARE}}-signed.apk
           ${{ github.WORKSPACE }}/apks/${{vars.APK_NAME_ANTIMALWARE}}-signed.apk.sha512
 
+
+#    - name: Create Release
+#      uses: "crowbarmaster/GH-Automatic-Releases@latest"
+#      # https://github.com/crowbarmaster/GH-Automatic-Releases
+#      with:
+#        repo_token: "${{ secrets.LOCAL_TOKEN_REPO_RW }}"
+#        #automatic_release_tag: latest
+#        prerelease: false
+#        generate_notes: true
+#        title: "${{ env.APP_VERSION }} (${{ env.git_sha_short }})"
+#
 #      uses: https://gitea.com/actions/gitea-release-action@v1
 #      # https://github.com/akkuman/gitea-release-action
 #      with:
