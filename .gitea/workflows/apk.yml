@@ -27,6 +27,10 @@ jobs:
       with:
         submodules: true
 
+    - name: "Set env variables"
+      shell: bash
+      run: echo "GITHUB_API_URL='https://code.binbash.rocks:8443/api/v1'" >> $GITHUB_ENV
+
     - name: Create Release
       uses: "https://code.binbash.rocks:8443/Android/gitea-release@main"
       # https://github.com/crowbarmaster/GH-Automatic-Releases
