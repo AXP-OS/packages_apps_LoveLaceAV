@@ -1,11 +1,15 @@
+#####################################################################################
+# documentation:
+# - https://docs.gitea.com/usage/actions/overview
+# - https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows
+#####################################################################################
+
 name: Build APK
 
 on:
   push:
     tags:
       - v20**
-  #  branches:
-  #    - main
   workflow_dispatch:  # button shown only when in default branch
 
 # NOT implemented in Gitea!
@@ -22,14 +26,6 @@ jobs:
     - uses: actions/checkout@v4
       with:
         submodules: true
-
-    - name: Create Release
-      uses: "crowbarmaster/GH-Automatic-Releases@latest"
-      # https://github.com/crowbarmaster/GH-Automatic-Releases
-      with:
-        repo_token: "${{ secrets.LOCAL_TOKEN_REPO_RW }}"
- #       automatic_release_tag: "2025.1.9"
-        prerelease: false
 
     - name: set up JDK
       uses: actions/setup-java@v3
@@ -51,7 +47,6 @@ jobs:
       # https://github.com/android-actions/setup-android
       uses: android-actions/setup-android@v3
       with:
-        #packages: 'build-tools'
         cmdline-tools-version: 12266719
 
     # https://github.com/r0adkll/sign-android-release/issues/84#issuecomment-1885690080
@@ -61,9 +56,10 @@ jobs:
         #BUILD_TOOL_VERSION=$(ls /root/.android/sdk/build-tools | tail -n 1)
         #echo "BUILD_TOOL_VERSION=$BUILD_TOOL_VERSION" >> $GITHUB_ENV
         #echo Last build tool version is: $BUILD_TOOL_VERSION
-        OVER=$(date +%Y.%m.%d)
+
+        OVER=v$(date +%Y.%m.%d)
         [ -z "$OVER" ] && echo "ERROR: empty version detected" && exit 3
-        echo "APP_VERSION=$OVER" >> $GITHUB_ENV
+        echo "APP_VERSION=${OVER}" >> $GITHUB_ENV
         git_sha_short=$(git rev-parse --short "$GITHUB_SHA")
         echo "git_sha_short=$git_sha_short" >> $GITHUB_ENV
         echo "APP version is: $OVER ($git_sha_short)"
@@ -73,7 +69,6 @@ jobs:
         mkdir apks
         rm -rf app/build/outputs/apk/
         ./gradlew --no-daemon :app:assembleRelease
-        #gradle --no-daemon :app:assembleRelease
         mv -v app/build/outputs/apk/release/*.apk apks/${{vars.APK_NAME_ANTIMALWARE}}.apk
 
     # https://github.com/marketplace/actions/sign-android-releases-apk
@@ -99,14 +94,26 @@ jobs:
         echo "branch=${REF_NAME}" >> "$GITHUB_OUTPUT"
         
     - name: Create Release
-      uses: https://gitea.com/actions/gitea-release-action@v1
-      # https://github.com/akkuman/gitea-release-action
+      uses: "crowbarmaster/GH-Automatic-Releases@latest"
+      # https://github.com/crowbarmaster/GH-Automatic-Releases
       with:
-        token: "${{ secrets.LOCAL_TOKEN_REPO_RW }}"
-        tag_name: ${{ env.APP_VERSION }}
+        repo_token: "${{ secrets.LOCAL_TOKEN_REPO_RW }}"
+        automatic_release_tag: latest
         prerelease: false
-        name: "${{ env.APP_VERSION }} (${{ env.git_sha_short }})"
+        generate_notes: true
+        title: "${{ env.APP_VERSION }} (${{ env.git_sha_short }})"
         files: |
           ${{ github.WORKSPACE }}/apks/${{vars.APK_NAME_ANTIMALWARE}}-signed.apk
           ${{ github.WORKSPACE }}/apks/${{vars.APK_NAME_ANTIMALWARE}}-signed.apk.sha512
+
+#      uses: https://gitea.com/actions/gitea-release-action@v1
+#      # https://github.com/akkuman/gitea-release-action
+#      with:
+#        token: "${{ secrets.LOCAL_TOKEN_REPO_RW }}"
+#        tag_name: ${{ env.APP_VERSION }}
+#        prerelease: false
+#        name: "${{ env.APP_VERSION }} (${{ env.git_sha_short }})"
+#        files: |
+#          ${{ github.WORKSPACE }}/apks/${{vars.APK_NAME_ANTIMALWARE}}-signed.apk
+#          ${{ github.WORKSPACE }}/apks/${{vars.APK_NAME_ANTIMALWARE}}-signed.apk.sha512
 
