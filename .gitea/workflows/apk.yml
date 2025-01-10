@@ -93,6 +93,8 @@ jobs:
         echo "Cleaned name is ${REF_NAME}"
         echo "branch=${REF_NAME}" >> "$GITHUB_OUTPUT"
 
+        find ${{ github.WORKSPACE }} -name ${{vars.APK_NAME_ANTIMALWARE}}-signed.apk
+
     - name: Create Release
       uses: "https://code.binbash.rocks:8443/Android/gitea-release@main"
       # https://code.binbash.rocks:8443/Android/gitea-release
