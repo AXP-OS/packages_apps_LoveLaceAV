@@ -27,6 +27,14 @@ jobs:
       with:
         submodules: true
 
+    - name: Create Release
+      uses: "crowbarmaster/GH-Automatic-Releases@latest"
+      # https://github.com/crowbarmaster/GH-Automatic-Releases
+      with:
+        repo_token: "${{ secrets.LOCAL_TOKEN_REPO_RW }}"
+        prerelease: false
+        generate_notes: true
+
     - name: set up JDK
       uses: actions/setup-java@v3
       with:
@@ -98,7 +106,7 @@ jobs:
       # https://github.com/crowbarmaster/GH-Automatic-Releases
       with:
         repo_token: "${{ secrets.LOCAL_TOKEN_REPO_RW }}"
-        automatic_release_tag: latest
+        #automatic_release_tag: latest
         prerelease: false
         generate_notes: true
         title: "${{ env.APP_VERSION }} (${{ env.git_sha_short }})"
