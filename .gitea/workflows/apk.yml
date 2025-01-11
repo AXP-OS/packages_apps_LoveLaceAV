@@ -102,6 +102,18 @@ jobs:
         repo_token: "${{ secrets.LOCAL_TOKEN_REPO_RW }}"
         prerelease: false
         generate_notes: true
+#        files: |
+#          ${{ github.WORKSPACE }}/apks/${{vars.APK_NAME_ANTIMALWARE}}-signed.apk
+#          ${{ github.WORKSPACE }}/apks/${{vars.APK_NAME_ANTIMALWARE}}-signed.apk.sha512
+
+    - name: Upload assets
+      uses: https://gitea.com/actions/gitea-release-action@v1
+      # https://github.com/akkuman/gitea-release-action
+      with:
+        token: "${{ secrets.LOCAL_TOKEN_REPO_RW }}"
+        tag_name: ${{ env.APP_VERSION }}
+        prerelease: false
+        name: "${{ env.APP_VERSION }} (${{ env.git_sha_short }})"
         files: |
           ${{ github.WORKSPACE }}/apks/${{vars.APK_NAME_ANTIMALWARE}}-signed.apk
           ${{ github.WORKSPACE }}/apks/${{vars.APK_NAME_ANTIMALWARE}}-signed.apk.sha512
