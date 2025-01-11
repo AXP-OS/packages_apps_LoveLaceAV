@@ -92,7 +92,8 @@ jobs:
         REF_NAME=$(echo "${{ github.ref }}" | sed -e 's/refs\/heads\///' -e 's/refs\/tags\/v//' -e 's/release\/v//')
         echo "Cleaned name is ${REF_NAME}"
         echo "branch=${REF_NAME}" >> "$GITHUB_OUTPUT"
-
+        echo "APP_VERSION=${REF_NAME}" >> $GITHUB_ENV
+        
         find ${{ github.WORKSPACE }} -name ${{vars.APK_NAME_ANTIMALWARE}}-signed.apk
 
     - name: Create Release
