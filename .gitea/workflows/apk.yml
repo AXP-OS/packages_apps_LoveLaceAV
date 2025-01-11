@@ -92,9 +92,7 @@ jobs:
         REF_NAME=$(echo "${{ github.ref }}" | sed -e 's/refs\/heads\///' -e 's/refs\/tags\/v//' -e 's/release\/v//')
         echo "Cleaned name is ${REF_NAME}"
         echo "branch=${REF_NAME}" >> "$GITHUB_OUTPUT"
-        echo "APP_VERSION=${REF_NAME}" >> $GITHUB_ENV
-        
-        find ${{ github.WORKSPACE }} -name ${{vars.APK_NAME_ANTIMALWARE}}-signed.apk
+        echo "APP_VERSION=v${REF_NAME}" >> $GITHUB_ENV
 
     - name: Create Release
       uses: "https://code.binbash.rocks:8443/Android/gitea-release@main"
@@ -114,7 +112,8 @@ jobs:
         token: "${{ secrets.LOCAL_TOKEN_REPO_RW }}"
         tag_name: ${{ env.APP_VERSION }}
         prerelease: false
-        name: "${{ env.APP_VERSION }} (${{ env.git_sha_short }})"
+        name: "${{ env.APP_VERSION }}"
+#(${{ env.git_sha_short }})"
         files: |
           ${{ github.WORKSPACE }}/apks/${{vars.APK_NAME_ANTIMALWARE}}-signed.apk
           ${{ github.WORKSPACE }}/apks/${{vars.APK_NAME_ANTIMALWARE}}-signed.apk.sha512
