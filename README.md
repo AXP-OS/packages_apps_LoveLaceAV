@@ -1,15 +1,10 @@
-![Banner](https://divestos.org/images/featureGraphics/Hypatia.png)
-
-Hypatia
+LoveLaceAV
 =======
 
 Overview
 --------
-Hypatia is the world's first FOSS malware scanner for Android. It is powered by ClamAV style signature databases.
+LoveLaceAV is a FOSS malware scanner for Android. It is powered by ClamAV style signature databases and forked from [Hypatia](https://codeberg.org/divested-mobile/hypatia) made by the Divested Computing Group.
 
-[<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png"
-     alt="Get it on F-Droid"
-     height="80">](https://f-droid.org/packages/us.spotco.malwarescanner/)
 [<img src="https://hosted.weblate.org/widget/divestos/hypatia/287x66-grey.png"
      alt="Translation status"
      height="66">](https://hosted.weblate.org/engage/divestos/)
@@ -61,6 +56,7 @@ Goals
 
 Credits
 -------
+- Divested Computing Group for [Hypatia](https://divestos.org/pages/our_apps#hypatia)
 - ClamAV for the databases (GPLv2)
 - ESET for extra databases (BSD 2-Clause)
 - Nex (@botherder) for extra databases (CC BY-SA 4.0)
@@ -103,8 +99,6 @@ Translations
 Notices
 -------
 - Divested Computing Group is not affiliated with Cisco or ESET
-- Hypatia is not sponsored or endorsed by Cisco or ESET
+- LoveLaceAV is not sponsored or endorsed by Cisco or ESET
 
-Donate
--------
-- https://divested.dev/donate
+
