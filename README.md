@@ -1,3 +1,5 @@
+[Looking for a Maintainer](https://github.com/MaintainTeam/Hypatia/issues/1) ! Please consider to apply to keep this app maintained !
+
 ![Banner](https://divestos.org/images/featureGraphics/Hypatia.png)
 
 Hypatia
