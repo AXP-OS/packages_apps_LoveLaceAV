@@ -21,6 +21,8 @@ jobs:
           BRANCH: ${{ github.ref_name }}
         run: |
           mkdir -p "${{ github.workspace }}/stable"
+          mkdir -p "${{ github.workspace }}/output"
+
           cd "${{ github.workspace }}/stable"
           git clone --no-checkout https://github.com/MaintainTeam/Hypatia.git .
           git checkout --progress --force "stable"

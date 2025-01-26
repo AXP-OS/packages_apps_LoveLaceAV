@@ -62,8 +62,6 @@
     <string name="confirm_delete_summary">Sei sicuro di voler eliminare il seguente file?</string>
     <string name="delete_failed">Eliminazione fallita!</string>
     <string name="ignored">Ignorato!</string>
-    <string name="confirm_uninstall_title">Conferma disinstallazione</string>
-    <string name="confirm_uninstall_summary">Sei sicuro di voler disinstallare la seguente app?</string>
     <string name="uninstallApp">Disinstalla</string>
     <string name="lblSelfTest">Scrivi file per test autodiagnostico</string>
     <string name="lblExtendedDatabaseToggle">Database esteso</string>
