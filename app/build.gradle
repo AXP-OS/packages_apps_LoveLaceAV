@@ -9,7 +9,8 @@ android {
         targetSdkVersion 32
         versionCode 314
         versionName "3.14"
-        resConfigs 'en', 'af', 'cs', 'de', 'el', 'es', 'fi', 'fr', 'gl', 'it', 'pl', 'pt', 'pt-rBR', 'ru', 'tr', 'zh-rCN', 'ar', 'et', 'hr', 'in', 'ja', 'ro', 'sk', 'uk', 'zh-rTW'
+        resConfigs 'en', 'ar', 'bg', 'cs', 'de', 'es', 'et', 'fi', 'fr', 'gl', 'hr', 'in', 'it', 'ja', 'pt', 'pt-rBR', 'ro', 'ru', 'sk', 'ta', 'tr', 'uk', 'zh-rCN', 'zh-rTW'
+        // currently disabled locales due to insufficient translation: af, pl, el
     }
     buildTypes {
         debug {
