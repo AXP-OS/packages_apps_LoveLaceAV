@@ -1,6 +1,7 @@
-[Looking for a Maintainer](https://github.com/MaintainTeam/Hypatia/issues/1) ! Please consider to apply to keep this app maintained !
+> [!WARNING]
+> ### This is a fork of the original (and discontinued) app, **which is still looking for maintainers**. Please consider to [apply](https://github.com/MaintainTeam/Hypatia/issues/1) to keep this app maintained !
 
-![Banner](https://divestos.org/images/featureGraphics/Hypatia.png)
+![Banner](./fastlane/metadata/android/en-US/images/featureGraphic.png)
 
 Hypatia
 =======
@@ -9,12 +10,15 @@ Overview
 --------
 Hypatia is the world's first FOSS malware scanner for Android. It is powered by ClamAV style signature databases.
 
-[<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png"
+<!-- [<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png"
      alt="Get it on F-Droid"
-     height="80">](https://f-droid.org/packages/us.spotco.malwarescanner/)
-[<img src="https://hosted.weblate.org/widget/divestos/hypatia/287x66-grey.png"
+     height="80">](https://f-droid.org/packages/us.spotco.malwarescanner/) -->
+[<img src="https://gitlab.com/IzzyOnDroid/repo/-/raw/master/assets/IzzyOnDroid.png"
+     alt="Get it on IzzyOnDroid"
+     height="80">](https://apt.izzysoft.de/packages/org.maintainteam.hypatia/)
+[<img src="https://hosted.weblate.org/widget/maintainteam/hypatia/287x66-grey.png"
      alt="Translation status"
-     height="66">](https://hosted.weblate.org/engage/divestos/)
+     height="66">](https://hosted.weblate.org/projects/maintainteam/hypatia/)
 
 Features
 --------
@@ -37,8 +41,8 @@ Technical Details
 - Files have their MD5/SHA-1/SHA-256 hashes calculated in one pass
 - Realtime scanner is multithreaded and will use half of the device's core count for scanning multiple files asynchronously
 - Realtime scanning powered by a recursive FileObserver
-- Network connections will be made to the following: https://divested.dev/MalwareScannerSignatures/hypatia-*-bloom.bin{,.sig}
-- Statistics & generation output of the current database is available via https://divested.dev/MalwareScannerSignatures/
+<!-- - Network connections will be made to the following: https://divested.dev/MalwareScannerSignatures/hypatia-*-bloom.bin{,.sig}
+- Statistics & generation output of the current database is available via https://divested.dev/MalwareScannerSignatures/ -->
 
 Planned Updates
 ----------------
@@ -105,8 +109,5 @@ Translations
 Notices
 -------
 - Divested Computing Group is not affiliated with Cisco or ESET
+- MaintainTeam is not affiliated with Cisco or ESET
 - Hypatia is not sponsored or endorsed by Cisco or ESET
-
-Donate
--------
-- https://divested.dev/donate
