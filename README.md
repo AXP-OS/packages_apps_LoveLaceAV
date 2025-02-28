@@ -1,5 +1,5 @@
 > [!WARNING]
-> ### This is a fork of the original (and discontinued) app, **which is still looking for maintainers**. Please consider to [apply](https://github.com/MaintainTeam/Hypatia/issues/1) to keep this app maintained !
+> ### This is a fork of the [original](https://github.com/Divested-Mobile/Hypatia) (and discontinued) app, **which is still looking for maintainers**. Please consider to [apply](https://github.com/MaintainTeam/Hypatia/issues/1) to keep this app maintained !
 
 ![Banner](./fastlane/metadata/android/en-US/images/featureGraphic.png)
 
