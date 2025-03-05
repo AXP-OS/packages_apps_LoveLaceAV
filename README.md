@@ -43,7 +43,7 @@ We currently have 2 working signature database server provider. Both Signing key
 - [GitHub](https://github.com/MaintainTeam/HypatiaDatabases/)
   - to use in app & see generation reports: https://maintainteam.github.io/HypatiaDatabases/
 
-Database updates each day about 01 AM - 03 AM in both provider to `unsigned` branch. Then signs by self-hosted CI and push to `gh-pages`/`pages` branch about 06 AM. Each provider will generate static web-server from these branches.
+Database updates occurs in per 2 day about at 01 AM - 03 AM in both provider to `unsigned` branch. Then signing process made by self-hosted CI and push to `gh-pages`/`pages` branch about 06 AM. Each provider will generate static web-server from these branches. (UTC)
 
 Technical Details
 ------------------
