@@ -46,8 +46,7 @@ This occasionally occurs due to the nature of bloom filters. If you believe ther
 Signature Databases
 -------------------
 We currently have 2 working signature database server provider. Both Signing keys are `5298C0C0C3E73288`
-> [!WARNING]
-> Codeberg sometimes return 500 (see https://github.com/MaintainTeam/Hypatia/issues/11#issuecomment-2693793420)
+
 - [Codeberg](https://codeberg.org/MaintainTeam/HypatiaDatabases/)
   - to use in app & see generation reports: https://maintainteam.codeberg.page/HypatiaDatabases/
 - [GitHub](https://github.com/MaintainTeam/HypatiaDatabases/)
