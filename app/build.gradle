@@ -1,14 +1,23 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 33
+    compileSdkVersion 34
+    namespace 'us.spotco.malwarescanner'
+
     defaultConfig {
         applicationId "org.maintainteam.hypatia"
         resValue "string", "app_name", "Hypatia"
-        minSdkVersion 16
-        targetSdkVersion 32
-        versionCode 314
+        minSdkVersion 21
+        targetSdkVersion 34
+        if (System.properties.containsKey('versionCodeOverride')) {
+            versionCode System.getProperty('versionCodeOverride') as Integer
+        } else {
+            versionCode 314
+        }
         versionName "3.14"
+        if (System.properties.containsKey('versionNameSuffix')) {
+            versionNameSuffix System.getProperty('versionNameSuffix')
+        }
         resConfigs 'en', 'ar', 'bg', 'cs', 'de', 'es', 'et', 'fi', 'fr', 'gl', 'hr', 'in', 'it', 'ja', 'pt', 'pt-rBR', 'ro', 'ru', 'sk', 'ta', 'tr', 'uk', 'zh-rCN', 'zh-rTW'
         // currently disabled locales due to insufficient translation: af, pl, el
     }
@@ -28,14 +37,16 @@ android {
                 resValue "string", "app_name", "Hypatia " + workingBranch
             }
 
-            minifyEnabled true
             zipAlignEnabled true
 
         }
         release {
-            shrinkResources true
+            if (System.properties.containsKey('packageSuffix')) {
+                applicationIdSuffix System.getProperty('packageSuffix')
+                resValue "string", "app_name", "Hypatia " + System.getProperty('packageSuffix')
+            }
             minifyEnabled true
-            zipAlignEnabled true
+            shrinkResources false // disabled to fix F-Droid's reproducible build
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -49,12 +60,28 @@ android {
         exclude 'org/bouncycastle/x509/CertPathReviewerMessages.properties'
         exclude 'org/bouncycastle/x509/CertPathReviewerMessages_de.properties'
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+        encoding 'utf-8'
+    }
+    buildFeatures {
+        buildConfig = true
+    }
+    dependenciesInfo {
+
+        // Disables dependency metadata when building APKs.
+        includeInApk = false
+        // Disables dependency metadata when building Android App Bundles.
+        includeInBundle = false
+    }
 }
 
 dependencies {
     implementation 'commons-io:commons-io:2.5'
     implementation 'org.bouncycastle:bcpg-jdk15to18:1.77'
     implementation 'com.google.guava:guava:33.0.0-jre'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
 }
 
 static String getGitWorkingBranch() {
