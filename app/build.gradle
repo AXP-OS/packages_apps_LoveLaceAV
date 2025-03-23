@@ -12,9 +12,9 @@ android {
         if (System.properties.containsKey('versionCodeOverride')) {
             versionCode System.getProperty('versionCodeOverride') as Integer
         } else {
-            versionCode 314
+            versionCode 315
         }
-        versionName "3.14"
+        versionName "3.15"
         if (System.properties.containsKey('versionNameSuffix')) {
             versionNameSuffix System.getProperty('versionNameSuffix')
         }
