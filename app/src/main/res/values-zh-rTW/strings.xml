@@ -24,7 +24,7 @@
     <string name="lblRealtimeScannerToggle">即時掃描</string>
     <string name="lblReset">重製</string>
     <string name="lblOverride">複寫</string>
-    <string name="main_database_updating">正在更新 %s 個資料庫</string>
+    <string name="main_database_updating">正在更新 %s 個資料庫…</string>
     <string name="main_database_override">使用伺服器 %s</string>
     <string name="main_database_download_success">下載成功</string>
     <string name="main_no_database_available">沒有可用的資料庫，無法掃描…</string>
@@ -45,14 +45,14 @@
     <string name="scan_control">掃描控制</string>
     <string name="lblScanRunning">掠過動作，掃描正在執行！</string>
     <string name="lblSigningKey">數位簽章金要</string>
-    <string name="lblNoNetwork">沒有網路連線</string>
-    <string name="self_test_result_success">自我測試成功</string>
-    <string name="self_test_result_failure">自我測試失敗</string>
+    <string name="lblNoNetwork">沒有網路連線！</string>
+    <string name="self_test_result_success">自我測試成功。</string>
+    <string name="self_test_result_failure">自我測試失敗！</string>
     <string name="lblDatabaseLoading">掠過動作，資料庫正在載入中！</string>
-    <string name="lblDatabasesUpdated">所有資料庫已更新</string>
+    <string name="lblDatabasesUpdated">所有資料庫已更新！</string>
     <string name="lookupVT">查詢</string>
     <string name="deleteFile">刪除</string>
-    <string name="deleted">已刪除</string>
+    <string name="deleted">已刪除！</string>
     <string name="ignoreDetection">忽略</string>
     <string name="detections_none">未找到符合的資料 :)</string>
     <string name="detections_found">找到符合的資料！ :(</string>
@@ -74,4 +74,9 @@
     <string name="lblResetPrimary">主要伺服器</string>
     <string name="confirm_extended_title">要啟用增強版資料庫嗎？</string>
     <string name="confirm_extended_summary">此資料庫僅每季更新一次。</string>
+    <string name="accessibility_service_label">Hypatia 連結掃描器</string>
+    <string name="lblNotificationLinkDetection">偵測到惡意連結：</string>
+    <string name="lblLinkScannerToggle">連結掃描器</string>
+    <string name="confirm_link_scanner_title">啟用連結掃描器？</string>
+    <string name="lblResetCloudflare">Cloudflare 鏡像</string>
 </resources>
