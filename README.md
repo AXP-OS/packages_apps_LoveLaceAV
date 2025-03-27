@@ -63,6 +63,22 @@ Technical Details
 - Realtime scanner is multithreaded and will use half of the device's core count for scanning multiple files asynchronously
 - Realtime scanning powered by a recursive FileObserver
 
+Permissions
+-----------------
+- `ACCESS_NETWORK_STATE`
+- `FOREGROUND_SERVICE` and `FOREGROUND_SERVICE_SPECIAL_USE`: Used for realtime scanning.
+- `INTERNET`: Download and update databases.
+- `MANAGE_EXTERNAL_STORAGE`: Used for reading malicous files for scanning, and deleting infected files.
+- `QUERY_ALL_PACKAGES`: Used for scanning malicous apps.
+- `READ_EXTERNAL_STORAGE`: Scanning external storage.
+- `RECIEVE_BOOT_COMPLETED`: Restart the app on reboot.
+- `REQUEST_DELETE_PACKAGES`: Used for removing infected apps.
+- `POST_NOTIFICATIONS`: Notifications.
+- `WAKE_LOCK`
+- `WRITE_EXTERNAL_STORAGE`: Used for removing infected files.
+- `ACCESIBILITY_SERVICE`: Used to allow the link scanner to read the screen and check for malicious domains.
+- `DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION`
+
 Planned Updates
 ----------------
 - Option to scan on access
