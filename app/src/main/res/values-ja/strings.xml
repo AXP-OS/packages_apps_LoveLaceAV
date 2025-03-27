@@ -50,7 +50,7 @@
     <string name="main_cancelling_scan">スキャンを中断しようとしています・・・</string>
     <string name="main_files_pending_scan">%s ファイルがスキャン待ちです</string>
     <string name="main_hashing_done">全ファイルのハッシュを計算しました</string>
-    <string name="main_scanning_done">%s 秒 %sMB/s　でスキャン完了！</string>
+    <string name="main_scanning_done">%s 秒 %sMB/s でスキャン完了！</string>
     <string name="scan_control">スキャン設定</string>
     <string name="main_files_scanned_count">%sファイルがスキャンされました</string>
     <string name="self_test_result_failure">自己テストに失敗！</string>
