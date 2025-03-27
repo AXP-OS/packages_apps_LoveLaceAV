@@ -1,2 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_disclaimer">זהו רק סורק תוכנות זדוניות שמשווה קבצים ל-hashs שנמצאו בעבר. לא שרביט קסמים ששומר על כל האנדרואיד שלך מאובטח במיוחד. אתה צריך להיזהר במה שאתה מוריד/לוחץ!</string>
+</resources>
