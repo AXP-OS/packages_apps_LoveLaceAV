@@ -4,7 +4,6 @@
     <string name="app_license">Lisensie: GPL-3.0</string>
     <string name="app_version">Weergawe: %s</string>
     <string name="app_db_type_clamav">Aangedryf deur ClamAV tipe stempels</string>
-
     <string name="lblOnionRoutingToggle">Laai af deur Tor</string>
     <string name="lblOnionRoutingEnabledHint">Laai tans af deur Tor, dit mag \'n oogknip neem…</string>
     <string name="lblOnionRoutingNotInstalled">Orbot of InviZible is nie geïnstalleer nie!</string>
@@ -22,7 +21,6 @@
     <string name="lblNotificationRealtimeStopped">Hypatia: Intydse Skandering Gestaak</string>
     <string name="lblNotificationRealtimeDetection">Wanware Opgetel:</string>
     <string name="lblRealtimeScannerToggle">Intydse Skandeerder</string>
-
     <string name="main_database_updating">Dateer tans %s databasisse op…</string>
     <string name="main_database_download_success">Suksesvol afgelaai</string>
     <string name="main_database_download_error">Lêer nie afgelaai nie, respons kode %s</string>
@@ -31,7 +29,6 @@
     <string name="main_database_not_changed">Lêer nie verander</string>
     <string name="main_database_not_modified_since">sedert %s</string>
     <string name="main_database_download_error_logcat">Kon nie aflaai nie, kyk dalk na logcat</string>
-
     <string name="main_starting_scan">Begin tans skandering…</string>
     <string name="main_cancelling_scan">Kanseleer tans skandering…</string>
     <string name="main_files_pending_scan">%s lêers wag hul beurt af</string>
