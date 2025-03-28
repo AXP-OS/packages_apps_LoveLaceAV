@@ -1,0 +1,4 @@
+fix: get permission and make notifications visible for Android 13+
+doc: explain permissions thanks to @Inhishonor
+translation: added Hebrew translation thanks to @elid34
+translation: other translation updates
