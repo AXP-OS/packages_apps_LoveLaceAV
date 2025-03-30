@@ -18,7 +18,7 @@ android {
         if (System.properties.containsKey('versionNameSuffix')) {
             versionNameSuffix System.getProperty('versionNameSuffix')
         }
-        resConfigs 'en', 'ar', 'bg', 'cs', 'de', 'es', 'et', 'fi', 'fr', 'gl', 'he', 'hr', 'in', 'it', 'ja', 'pt', 'pt-rBR', 'ro', 'ru', 'sk', 'ta', 'tr', 'uk', 'zh-rCN', 'zh-rTW'
+        resConfigs 'en', 'ar', 'bg', 'cs', 'de', 'es', 'et', 'fi', 'fr', 'gl', 'hr', 'in', 'it', 'iw', 'ja', 'pt', 'pt-rBR', 'ro', 'ru', 'sk', 'ta', 'tr', 'uk', 'zh-rCN', 'zh-rTW'
         // currently disabled locales due to insufficient translation: af, pl, el
     }
     buildTypes {
