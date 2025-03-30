@@ -54,6 +54,16 @@ We currently have 2 working signature database server provider. Both Signing key
 
 Database updates occurs in per 2 day about at 01 AM - 03 AM in both provider to `unsigned` branch. Then signing process made by self-hosted CI and push to `gh-pages`/`pages` branch about 06 AM. Each provider will generate static web-server from these branches. (UTC)
 
+APK Info & Security
+--------------------
+
+Both debug, release and nightly versions built by GitHub Actions. You can check checksum notice in Release Actions or/and checksum.txt in releases to compare with Application's
+
+This is the SHA fingerprint of Hypatia's signing key to verify downloaded APKs which are signed by us.
+```
+1B:00:8D:64:BB:95:AB:47:74:D6:8B:87:F2:2B:8B:E9:A2:72:F4:92:4D:F5:20:29:D7:E6:18:38:35:D9:18:CC
+```
+
 Technical Details
 ------------------
 - Signature databases are serialized Guava BloomFilter object format
