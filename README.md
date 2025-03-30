@@ -133,6 +133,7 @@ Translations
 - Estonian: Priit Jõerüüt
 - Finnish: huuhaa, Ricky Tigg
 - French: cardpuncher, Jean-Luc Tibaux, Petra Mirelli, thraex
+- Hebrew: elid34
 - Galician: ghose, josé m
 - German: thereisnoanderson, Balthazar1234, Petra Mirelli, Ettore Atalan
 - Greek: Dimitris Vagiakakos
