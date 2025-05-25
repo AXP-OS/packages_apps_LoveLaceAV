@@ -18,7 +18,7 @@
     <string name="lblNotificationRealtimeTitle">Escáner en tiempo real</string>
     <string name="lblNotificationRealtimeDescription">Se utiliza para mostrar el contador de archivos escaneados y mantener el servicio en segundo plano</string>
     <string name="lblNotificationRealtimeText">El software malicioso conocido se detecta en tiempo real</string>
-    <string name="lblNotificationRealtimeStopped">Hypatia: Escaneo en tiempo real detenido</string>
+    <string name="lblNotificationRealtimeStopped">LoveLaceAV: Escaneo en tiempo real detenido</string>
     <string name="lblNotificationRealtimeDetection">Software malicioso detectado:</string>
     <string name="lblRealtimeScannerToggle">Escáner en tiempo real</string>
     <string name="lblReset">Reiniciar</string>
@@ -83,5 +83,5 @@
 \nCualquier dominio que se encuentre en el contenido de la pantalla se cotejará con la base de datos.
 \nEsto requiere conceder manualmente permiso al servicio de accesibilidad.
 \nEsto puede tener un impacto sustancial en el rendimiento de las pantallas con grandes cantidades de texto.</string>
-    <string name="accessibility_service_label">Analizador de enlaces de Hypatia</string>
+    <string name="accessibility_service_label">Analizador de enlaces de LoveLaceAV</string>
 </resources>

@@ -13,7 +13,7 @@
     <string name="lblNotificationMalwareDetectionTitle">Detekcia škodlivého softvéru</string>
     <string name="lblNotificationRealtimeTitle">Skenovať v reálnom čase</string>
     <string name="lblNotificationRealtimeDescription">Slúži na zobrazenie počtu skenovaných súborov a udržiavanie služby na pozadí</string>
-    <string name="lblNotificationRealtimeStopped">Hypatia: Skenovanie v reálnom čase sa zastavilo</string>
+    <string name="lblNotificationRealtimeStopped">LoveLaceAV: Skenovanie v reálnom čase sa zastavilo</string>
     <string name="lblRealtimeScannerToggle">Skenovať v reálnom čase</string>
     <string name="lblReset">Obnovenie</string>
     <string name="lblOverride">Prepísať</string>
@@ -60,7 +60,7 @@
     <string name="lblWroteTestFiles">Zapísané testovacie súbory!</string>
     <string name="lblResetPrimary">Primárne servery</string>
     <string name="lblResetCloudflare">Zrkadlo Cloudflare</string>
-    <string name="accessibility_service_label">Hypatia skener odkazov</string>
+    <string name="accessibility_service_label">LoveLaceAV skener odkazov</string>
     <string name="accessibility_service_description">Extrahuje domény z celého textového obsahu obrazovky a kontroluje ich podľa zoznamu blokov</string>
     <string name="lblLinkScannerToggle">Skener odkazov</string>
     <string name="confirm_link_scanner_title">Zapnúť skener odkazov?</string>

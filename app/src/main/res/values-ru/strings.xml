@@ -18,7 +18,7 @@
     <string name="lblNotificationRealtimeTitle">Сканер в реальном времени</string>
     <string name="lblNotificationRealtimeDescription">Используется для отображения счетчика просканированных файлов и поддержки фоновой службы</string>
     <string name="lblNotificationRealtimeText">Вредоносное ПО обнаруживается в реальном времени</string>
-    <string name="lblNotificationRealtimeStopped">Hypatia: сканирование в реальном времени остановлено</string>
+    <string name="lblNotificationRealtimeStopped">LoveLaceAV: сканирование в реальном времени остановлено</string>
     <string name="lblNotificationRealtimeDetection">Обнаружено вредоносное ПО:</string>
     <string name="lblRealtimeScannerToggle">Сканер в реальном времени</string>
     <string name="lblReset">Сбросить</string>
@@ -83,5 +83,5 @@
 \nВсе домены, найденные в содержимом экрана, будут проверены по этой базе.
 \nДля этого необходимо вручную предоставить разрешение службе доступности.
 \nЭто может существенно повлиять на производительность экранов с большим количеством текста.</string>
-    <string name="accessibility_service_label">Сканер Hypatia Link</string>
+    <string name="accessibility_service_label">Сканер LoveLaceAV Link</string>
 </resources>

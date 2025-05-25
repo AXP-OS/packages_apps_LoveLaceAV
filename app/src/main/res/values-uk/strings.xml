@@ -48,7 +48,7 @@
     <string name="lblUpdateRunning">Пропуск дії, оновлення триває!</string>
     <string name="lblResetPrimary">Основні сервери</string>
     <string name="lblResetCloudflare">Дзеркало Cloudflare</string>
-    <string name="accessibility_service_label">Сканер посилань Hypatia</string>
+    <string name="accessibility_service_label">Сканер посилань LoveLaceAV</string>
     <string name="accessibility_service_description">Витягує домени з усього текстового вмісту екрана та перевіряє їх за блок-листом</string>
     <string name="confirm_link_scanner_title">Увімкнути сканер посилань?</string>
     <string name="lblWroteTestFiles">Файли самотестування записано!</string>
@@ -60,7 +60,7 @@
     <string name="lblNotificationRealtimeDescription">Використовується для відображення лічильника відсканованих файлів й підтримки фонової служби</string>
     <string name="main_files_pending_scan">%s файлів, що очікують на перевірку</string>
     <string name="lblNotificationRealtimeText">Відомі шкідливі застосунки будуть виявлятися в режимі реального часу</string>
-    <string name="lblNotificationRealtimeStopped">Hypatia: Сканування у реальному часі зупинено</string>
+    <string name="lblNotificationRealtimeStopped">LoveLaceAV: Сканування у реальному часі зупинено</string>
     <string name="lblRealtimeScannerToggle">Сканер у реальному часі</string>
     <string name="lblOverride">Перевизначити</string>
     <string name="main_database_updating">Оновлення %s баз даних…</string>

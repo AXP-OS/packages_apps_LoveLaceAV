@@ -18,7 +18,7 @@
     <string name="lblNotificationRealtimeTitle">Scansione in tempo reale</string>
     <string name="lblNotificationRealtimeDescription">Indica il numero di file scansionati e mantiene il servizio in esecuzione in background</string>
     <string name="lblNotificationRealtimeText">Il malware sarà rilevato in tempo reale</string>
-    <string name="lblNotificationRealtimeStopped">Hypatia: la scansione in tempo reale è stata interrotta</string>
+    <string name="lblNotificationRealtimeStopped">LoveLaceAV: la scansione in tempo reale è stata interrotta</string>
     <string name="lblNotificationRealtimeDetection">Malware rilevato:</string>
     <string name="lblRealtimeScannerToggle">Scansione in tempo reale</string>
     <string name="lblReset">Reset</string>
@@ -62,8 +62,6 @@
     <string name="confirm_delete_summary">Sei sicuro di voler eliminare il seguente file?</string>
     <string name="delete_failed">Eliminazione fallita!</string>
     <string name="ignored">Ignorato!</string>
-    <string name="confirm_uninstall_title">Conferma disinstallazione</string>
-    <string name="confirm_uninstall_summary">Sei sicuro di voler disinstallare la seguente app?</string>
     <string name="uninstallApp">Disinstalla</string>
     <string name="lblSelfTest">Scrivi file per test autodiagnostico</string>
     <string name="lblExtendedDatabaseToggle">Database esteso</string>
@@ -78,7 +76,7 @@
     <string name="lblResetCloudflare">Mirror di Cloudflare</string>
     <string name="confirm_link_scanner_title">Abilitare lo scanner di link?</string>
     <string name="confirm_link_scanner_summary">[SPERIMENTALE]\nQuesta funzione scaricherà un database aggiuntivo di domini.\nOgni dominio visualizzato a schermo verrà confrontato con quelli nel database.\nCiò richiede l\'abilitazione manuale del servizio di accessibilità.\nCiò può avere un impatto considerevole sulle prestazioni quando sullo schermo è presente una grande quantità di testo.</string>
-    <string name="accessibility_service_label">Scanner di link di Hypatia</string>
+    <string name="accessibility_service_label">Scanner di link di LoveLaceAV</string>
     <string name="accessibility_service_description">Estrae i domini dal testo visualizzato a schermo verifica se compaiono su una lista nera</string>
     <string name="lblLinkScannerToggle">Scanner di link</string>
     <string name="app_copyright">Copyright 2017-2024 di Divested Computing Group</string>

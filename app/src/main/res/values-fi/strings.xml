@@ -17,7 +17,7 @@
     <string name="lblNotificationRealtimeTitle">Reaaliaikainen tarkistus</string>
     <string name="lblNotificationRealtimeDescription">Käytetään näyttämään tarkistettujen tiedostojen laskuri ja ylläpitämään taustapalvelua.</string>
     <string name="lblNotificationRealtimeText">Tunnetut haittaohjelmat havaitaan reaaliajassa</string>
-    <string name="lblNotificationRealtimeStopped">Hypatia: Reaaliaikainen tarkistus pysäytetty</string>
+    <string name="lblNotificationRealtimeStopped">LoveLaceAV: Reaaliaikainen tarkistus pysäytetty</string>
     <string name="lblNotificationRealtimeDetection">Haittaohjelma havaittu:</string>
     <string name="lblRealtimeScannerToggle">Reaaliaikainen tarkistus</string>
     <string name="lblReset">Palauta</string>
@@ -77,7 +77,7 @@
     <string name="lblUpdateRunning">Toiminta ohitettiin, päivitys on käynnissä!</string>
     <string name="lblWroteTestFiles">Testitiedostot kirjoitettu!</string>
     <string name="lblResetPrimary">Ensisijaiset palvelimet</string>
-    <string name="accessibility_service_label">Hypatia Linkkien tarkistaja</string>
+    <string name="accessibility_service_label">LoveLaceAV Linkkien tarkistaja</string>
     <string name="lblNotificationLinkDetection">Haitallinen linkki havaittu:</string>
     <string name="lblLinkScannerToggle">Linkkien tarkistus</string>
     <string name="confirm_link_scanner_title">Ota linkkien tarkistus käyttöön?</string>

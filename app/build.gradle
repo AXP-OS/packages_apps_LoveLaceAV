@@ -1,25 +1,52 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 33
+    compileSdkVersion 34
+    namespace 'us.spotco.malwarescanner'
+
     defaultConfig {
-        applicationId "us.spotco.malwarescanner"
-        minSdkVersion 18
-        targetSdkVersion 32
-        versionCode 315
-        versionName "3.15"
-        resConfigs 'en', 'af', 'cs', 'de', 'el', 'es', 'fi', 'fr', 'gl', 'it', 'pl', 'pt', 'pt-rBR', 'ru', 'tr', 'zh-rCN', 'ar', 'et', 'hr', 'in', 'ja', 'ro', 'sk', 'uk', 'zh-rTW'
+        applicationId "org.axpos.lovelaceav"
+        resValue "string", "app_name", "LoveLaceAV"
+        minSdkVersion 21
+        targetSdkVersion 34
+        if (System.properties.containsKey('versionCodeOverride')) {
+            versionCode System.getProperty('versionCodeOverride') as Integer
+        } else {
+            versionCode 3161
+        }
+        versionName "3.16.1"
+        if (System.properties.containsKey('versionNameSuffix')) {
+            versionNameSuffix System.getProperty('versionNameSuffix')
+        }
+        resConfigs 'en', 'ar', 'bg', 'cs', 'de', 'es', 'et', 'fi', 'fr', 'gl', 'hr', 'in', 'it', 'iw', 'ja', 'pt', 'pt-rBR', 'ro', 'ru', 'sk', 'ta', 'tr', 'uk', 'zh-rCN', 'zh-rTW'
+        // currently disabled locales due to insufficient translation: af, pl, el
     }
     buildTypes {
         debug {
-            applicationIdSuffix ".debug"
-            minifyEnabled true
+            debuggable true
+
+            // suffix the app id and the app name with git branch name
+            def workingBranch = getGitWorkingBranch()
+            def normalizedWorkingBranch = workingBranch.replaceFirst("^[^A-Za-z]+", "").replaceAll("[^0-9A-Za-z]+", "")
+            if (normalizedWorkingBranch.isEmpty() || workingBranch == "master" || workingBranch == "dev" || workingBranch == "stable") {
+                // default values when branch name could not be determined or is master, dev or stable
+                applicationIdSuffix ".debug"
+                resValue "string", "app_name", "LoveLaceAV Debug"
+            } else {
+                applicationIdSuffix ".debug." + normalizedWorkingBranch
+                resValue "string", "app_name", "LoveLaceAV " + workingBranch
+            }
+
             zipAlignEnabled true
+
         }
         release {
-            shrinkResources true
+            if (System.properties.containsKey('packageSuffix')) {
+                applicationIdSuffix System.getProperty('packageSuffix')
+                resValue "string", "app_name", "LoveLaceAV " + System.getProperty('packageSuffix')
+            }
             minifyEnabled true
-            zipAlignEnabled true
+            shrinkResources false // disabled to fix F-Droid's reproducible build
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -33,10 +60,42 @@ android {
         exclude 'org/bouncycastle/x509/CertPathReviewerMessages.properties'
         exclude 'org/bouncycastle/x509/CertPathReviewerMessages_de.properties'
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+        encoding 'utf-8'
+    }
+    buildFeatures {
+        buildConfig = true
+    }
+    dependenciesInfo {
+
+        // Disables dependency metadata when building APKs.
+        includeInApk = false
+        // Disables dependency metadata when building Android App Bundles.
+        includeInBundle = false
+    }
 }
 
 dependencies {
     implementation 'commons-io:commons-io:2.5'
     implementation 'org.bouncycastle:bcpg-jdk15to18:1.77'
     implementation 'com.google.guava:guava:33.0.0-jre'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+}
+
+static String getGitWorkingBranch() {
+    try {
+        def gitProcess = "git rev-parse --abbrev-ref HEAD".execute()
+        gitProcess.waitFor()
+        if (gitProcess.exitValue() == 0) {
+            return gitProcess.text.trim()
+        } else {
+            // not a git repository
+            return ""
+        }
+    } catch (IOException ignored) {
+        // git was not found
+        return ""
+    }
 }

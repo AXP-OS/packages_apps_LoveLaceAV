@@ -25,7 +25,7 @@
     <string name="lblExtendedDatabaseToggle">Baze de date extinse</string>
     <string name="confirm_extended_title">Activați bazele de date extinse?</string>
     <string name="lblUpdateRunning">Acțiune ignorată, actualizare in curs!</string>
-    <string name="accessibility_service_label">Hypatia Link Scanner</string>
+    <string name="accessibility_service_label">LoveLaceAV Link Scanner</string>
     <string name="lblNotificationLinkDetection">Link cu conținut malițios detectat:</string>
     <string name="confirm_link_scanner_title">Porniți link scanner?</string>
     <string name="main_database_loading">Baza de date se încarcă…</string>
@@ -50,7 +50,7 @@
     <string name="lblFullCredits">Credite</string>
     <string name="lblNotificationRealtimeTitle">Scaner in timp real</string>
     <string name="lblNotificationRealtimeText">Malware-urile cunoscute vor fi detectate in timp real</string>
-    <string name="lblNotificationRealtimeStopped">Hypatia: Scanarea în timp real a fost oprită</string>
+    <string name="lblNotificationRealtimeStopped">LoveLaceAV: Scanarea în timp real a fost oprită</string>
     <string name="lblRealtimeScannerToggle">Scaner in timp real</string>
     <string name="main_database_override">Se utilizează serverul %s</string>
     <string name="main_database_download_error">Fișierul nu a fost descărcat, cod de răspuns %s</string>

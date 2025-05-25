@@ -4,7 +4,6 @@
     <string name="app_license">Άδεια: GPL-3.0</string>
     <string name="app_version">Έκδοση: %s</string>
     <string name="app_db_type_clamav">Υποστηρίζεται από υπογραφές τύπου ClamAV</string>
-
     <string name="lblOnionRoutingToggle">Πραγματοποιείται Λήψη μέσω Tor</string>
     <string name="lblOnionRoutingEnabledHint">Λήψη μέσω Tor, αυτό μπορεί να πάρει κάποιο χρόνο…</string>
     <string name="lblOnionRoutingNotInstalled">Το Orbot δεν είναι εγκατεστημένο!</string>
@@ -20,12 +19,11 @@
     <string name="lblNotificationRealtimeTitle">Σάρωση σε πραγματικό χρόνο</string>
     <string name="lblNotificationRealtimeDescription">Χρησιμοποιείται για να εμφανίζει τον αριθμό των αρχείων που σαρώνονται και για να διατηρεί την υπηρεσία στο παρασκήνιο</string>
     <string name="lblNotificationRealtimeText">Το γνωστό κακόβουλο λογισμικό θα ανιχνεύεται σε πραγματικό χρόνο</string>
-    <string name="lblNotificationRealtimeStopped">Hypatia: Η σάρωση σε πραγματικό χρόνο σταμάτησε</string>
+    <string name="lblNotificationRealtimeStopped">LoveLaceAV: Η σάρωση σε πραγματικό χρόνο σταμάτησε</string>
     <string name="lblNotificationRealtimeDetection">Ανιχνεύτηκε κακόβουλο λογισμικό:</string>
     <string name="lblRealtimeScannerToggle">Σάρωση σε πραγματικό χρόνο</string>
     <string name="lblReset">Επαναφορά</string>
     <string name="lblOverride">Παράκαμψη</string>
-
     <string name="main_database_updating">Ενημέρωση %s βάσεων δεδομένων…</string>
     <string name="main_database_override">Χρήση διακομιστή %s</string>
     <string name="main_database_download_success">Επιτυχής λήψη</string>
@@ -35,7 +33,6 @@
     <string name="main_database_not_changed">Το αρχείο δεν άλλαξε</string>
     <string name="main_database_not_modified_since">από %s</string>
     <string name="main_database_download_error_logcat">Αποτυχία λήψης, ελέγξτε το logcat</string>
-
     <string name="main_starting_scan">Έναρξη σάρωσης…</string>
     <string name="main_cancelling_scan">Ακύρωση σάρωσης…</string>
     <string name="main_files_pending_scan">%s αρχεία περιμένουν σάρωση</string>

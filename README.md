@@ -7,7 +7,7 @@ LoveLaceAV is a FOSS malware scanner for Android. It is powered by ClamAV style 
 
 [<img src="https://hosted.weblate.org/widget/divestos/hypatia/287x66-grey.png"
      alt="Translation status"
-     height="66">](https://hosted.weblate.org/engage/divestos/)
+     height="66">](https://hosted.weblate.org/projects/maintainteam/hypatia/)
 
 Features
 --------
@@ -22,6 +22,29 @@ Features
 - Minimal dependencies: the app only uses libraries when necessary
 - Signature databases can be enabled/disabled at the users demand
 
+
+Troubleshooting
+------------------
+- **The app crashes and is very buggy:**
+The first thing to check is if you have extended databases enabled. Extended databases require more RAM (8 GB), and can occasionally cause the app to be very buggy.
+- **Unable to download databases:**
+If this occurs, try tapping the ellipsis in the top right of the main screen and tap `Database server override`. This uses a mirror database in case the main database is down.
+- **There are false positives:**
+This occasionally occurs due to the nature of bloom filters. If you believe there is a false positive, first, rescan. This will sometimes fix the false positive. And if this still returns a false positive, scan the file to [VirusTotal](https://www.virustotal.com/gui/home/upload), and this will tell you if you truly have a false positive or rather some malware.
+
+Signature Databases
+-------------------
+
+- Default database:
+	- Signing key: `EDA3375DBF4B7384`
+	- Database: https://lav.axpos.org/db
+- Hypatia-Fork @codeberg:
+	- Signing key:`5298C0C0C3E73288`
+	- Database: https://codeberg.org/MaintainTeam/HypatiaDatabases/
+- Hypatia-Fork @github:
+	- Signing key: `5298C0C0C3E73288`
+	- Database: https://github.com/MaintainTeam/HypatiaDatabases/
+
 Technical Details
 ------------------
 - Signature databases are serialized Guava BloomFilter object format
@@ -30,17 +53,31 @@ Technical Details
 - Files have their MD5/SHA-1/SHA-256 hashes calculated in one pass
 - Realtime scanner is multithreaded and will use half of the device's core count for scanning multiple files asynchronously
 - Realtime scanning powered by a recursive FileObserver
-- Network connections will be made to the following: https://divested.dev/MalwareScannerSignatures/hypatia-*-bloom.bin{,.sig}
-- Statistics & generation output of the current database is available via https://divested.dev/MalwareScannerSignatures/
+- Network connections will be made to the following: https://lav.axpos.org/db/hypatia-*-bloom.bin{,.sig}
+- Statistics & generation output of the current database is available via  https://lav.axpos.org/db
+
+Permissions
+-----------------
+- `ACCESS_NETWORK_STATE`
+- `FOREGROUND_SERVICE` and `FOREGROUND_SERVICE_SPECIAL_USE`: Used for realtime scanning.
+- `INTERNET`: Download and update databases.
+- `MANAGE_EXTERNAL_STORAGE`: Used for reading malicous files for scanning, and deleting infected files.
+- `QUERY_ALL_PACKAGES`: Used for scanning malicous apps.
+- `READ_EXTERNAL_STORAGE`: Scanning external storage.
+- `RECIEVE_BOOT_COMPLETED`: Restart the app on reboot.
+- `REQUEST_DELETE_PACKAGES`: Used for removing infected apps.
+- `POST_NOTIFICATIONS`: Notifications.
+- `WAKE_LOCK`
+- `WRITE_EXTERNAL_STORAGE`: Used for removing infected files.
+- `ACCESIBILITY_SERVICE`: Used to allow the link scanner to read the screen and check for malicious domains.
+- `DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION`
 
 Planned Updates
 ----------------
 - Option to scan on access
-- Scan files via share intent
 - Scan newly installed/updated apps
 - Option to let 3rd-party apps invoke scans
 - Automatic database updates
-- Automatic database generation
 - Database sanity checks
 - Testing
 - Better GUI
@@ -57,6 +94,7 @@ Goals
 Credits
 -------
 - Divested Computing Group for [Hypatia](https://divestos.org/pages/our_apps#hypatia)
+- MaintainTeam-Hypatia: https://github.com/MaintainTeam/Hypatia
 - ClamAV for the databases (GPLv2)
 - ESET for extra databases (BSD 2-Clause)
 - Nex (@botherder) for extra databases (CC BY-SA 4.0)
@@ -80,6 +118,7 @@ Translations
 - Estonian: Priit Jõerüüt
 - Finnish: huuhaa, Ricky Tigg
 - French: cardpuncher, Jean-Luc Tibaux, Petra Mirelli, thraex
+- Hebrew: elid34
 - Galician: ghose, josé m
 - German: thereisnoanderson, Balthazar1234, Petra Mirelli, Ettore Atalan
 - Greek: Dimitris Vagiakakos

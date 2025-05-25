@@ -19,7 +19,7 @@
     <string name="lblNotificationRealtimeTitle">Echtzeit-Scanner</string>
     <string name="lblNotificationRealtimeDescription">Dient zur Aufzählung bereits dursuchter Dateien und der Aufrechthaltung des aktiven Scan\'s im Hintergrund</string>
     <string name="lblNotificationRealtimeText">Bekannte Schadsoftware wird in Echtzeit erkannt</string>
-    <string name="lblNotificationRealtimeStopped">Hypatia: Echtzeit-Scanner wurde gestoppt</string>
+    <string name="lblNotificationRealtimeStopped">LoveLaceAV: Echtzeit-Scanner wurde gestoppt</string>
     <string name="lblNotificationRealtimeDetection">Schadsoftware gefunden:</string>
     <string name="lblRealtimeScannerToggle">Echtzeit-Scanner</string>
     <string name="lblReset">Zurücksetzen</string>
@@ -75,7 +75,7 @@
     <string name="lblResetPrimary">Primärer Server</string>
     <string name="lblResetCloudflare">Cloudflare Mirror/Spiegel</string>
     <string name="confirm_update_title">Download bestätigen</string>
-    <string name="accessibility_service_label">Hypatia Link Scanner</string>
+    <string name="accessibility_service_label">LoveLaceAV Link Scanner</string>
     <string name="accessibility_service_description">Entinmmt Webaddressen vom Text des Bildschirminhalts und vergleicht diese gegen die Blockierliste</string>
     <string name="lblNotificationLinkDetection">Bösartiger Link erkannt:</string>
     <string name="lblLinkScannerToggle">Link Scanner</string>

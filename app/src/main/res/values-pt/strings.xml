@@ -17,7 +17,7 @@
     <string name="lblNotificationRealtimeTitle">Análise em tempo real</string>
     <string name="lblNotificationRealtimeDescription">Usado para mostrar contador de arquivos analisados e manter o serviço de segundo plano</string>
     <string name="lblNotificationRealtimeText">O malware conhecido será detectado em tempo real</string>
-    <string name="lblNotificationRealtimeStopped">Hypatia: Análise em tempo real parou</string>
+    <string name="lblNotificationRealtimeStopped">LoveLaceAV: Análise em tempo real parou</string>
     <string name="lblNotificationRealtimeDetection">Malware detectado:</string>
     <string name="lblRealtimeScannerToggle">Analisar em tempo real</string>
     <string name="main_database_updating">Atualizando %s base de dados…</string>
@@ -75,7 +75,7 @@
     <string name="lblWroteTestFiles">Ficheiros de auto-verificação foram criados!</string>
     <string name="lblResetPrimary">Servidores Primários</string>
     <string name="lblResetCloudflare">Espelho Cloudflare</string>
-    <string name="accessibility_service_label">Scanner de ligações do Hypatia</string>
+    <string name="accessibility_service_label">Scanner de ligações do LoveLaceAV</string>
     <string name="accessibility_service_description">Extrai domínios de todo o conteúdo de texto do ecrã e verifica se estão numa lista de bloqueio</string>
     <string name="lblNotificationLinkDetection">Ligação maliciosa detetada:</string>
     <string name="lblLinkScannerToggle">Scanner de ligações</string>

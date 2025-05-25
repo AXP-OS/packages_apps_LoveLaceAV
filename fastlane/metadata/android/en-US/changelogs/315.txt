@@ -1,0 +1,19 @@
+- chore: security disclaimer
+- feat: share scan feature
+- feat: add new database urls and make codeberg default
+- enhancement: database downloading conditions updated and fixed unnecessary or missing updates
+- enhancement: More modern notification UI
+- enhancement: Warn if signing key is wrong/not matches
+- dev: update gradle to 8.9 and java to 21
+- dev: drop Android 4 support
+- dev: support Android 14
+- dev: new logger mechanism for better/async debugging and logging
+- dev: new AppCompat implementations and AppCompat theme changes
+- dev: Actionbar implementation changed to Toolbar implementation
+- dev: cache scan system for shared files that does not have a system path. This is also mandatory method for Android 10+ because of some restrictions.
+- dev: implemented Application for getting app context rightly and ensure MainActivity has been started
+- dev: commenting to some functions to better understanding 
+- dev: added android-env nix file to build on nixos
+- dev: some code refactoring
+- dev: change build.gradle for nightly builds
+- fix: Realtime Scanner crashing (#44) thanks to @Inhishonor
