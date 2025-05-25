@@ -20,6 +20,8 @@ jobs:
   build:
     #if: github.event.pull_request.merged == true || github.event_name == 'push'
     runs-on: docker-node-latest
+    outputs:
+      SHA_LAV: ${{ steps.hash.outputs.SHA_LAV }}
 
     steps:
 
@@ -85,58 +87,51 @@ jobs:
         BUILD_TOOLS_VERSION: ${{ env.BUILD_TOOL_VERSION }}
 
     - name: Prep release
+      id: hash
       run: |
         cd apks
         sha512sum ${{vars.APK_NAME_ANTIMALWARE}}-signed.apk > ${{vars.APK_NAME_ANTIMALWARE}}-signed.apk.sha512
+        echo "SHA_LAV=$(cat ${{vars.APK_NAME_ANTIMALWARE}}-signed.apk.sha512 | cut -d ' ' -f1)" >> $GITHUB_OUTPUT
 
         REF_NAME=$(echo "${{ github.ref }}" | sed -e 's/refs\/heads\///' -e 's/refs\/tags\/v//' -e 's/release\/v//')
         echo "Cleaned name is ${REF_NAME}"
         echo "branch=${REF_NAME}" >> "$GITHUB_OUTPUT"
         echo "APP_VERSION=v${REF_NAME}" >> $GITHUB_ENV
 
-    - name: Create Release
-      uses: "https://code.binbash.rocks:8443/Android/gitea-release@main"
-      # https://code.binbash.rocks:8443/Android/gitea-release
+    - name: Upload all files as artifact
+      uses: actions/upload-artifact@v3
+      id: upload
       with:
-        repo_token: "${{ secrets.LOCAL_TOKEN_REPO_RW }}"
-        prerelease: false
-        generate_notes: true
-#        files: |
-#          ${{ github.WORKSPACE }}/apks/${{vars.APK_NAME_ANTIMALWARE}}-signed.apk
-#          ${{ github.WORKSPACE }}/apks/${{vars.APK_NAME_ANTIMALWARE}}-signed.apk.sha512
-
-    - name: Upload assets
-      uses: https://gitea.com/actions/gitea-release-action@v1
-      # https://github.com/akkuman/gitea-release-action
-      with:
-        token: "${{ secrets.LOCAL_TOKEN_REPO_RW }}"
-        tag_name: ${{ env.APP_VERSION }}
-        prerelease: false
-        name: "${{ env.APP_VERSION }}"
-#(${{ env.git_sha_short }})"
-        files: |
+        name: release-artifact
+        retention-days: 1
+        if-no-files-found: error
+        path: |
           ${{ github.WORKSPACE }}/apks/${{vars.APK_NAME_ANTIMALWARE}}-signed.apk
           ${{ github.WORKSPACE }}/apks/${{vars.APK_NAME_ANTIMALWARE}}-signed.apk.sha512
 
 
-#    - name: Create Release
-#      uses: "crowbarmaster/GH-Automatic-Releases@latest"
-#      # https://github.com/crowbarmaster/GH-Automatic-Releases
-#      with:
-#        repo_token: "${{ secrets.LOCAL_TOKEN_REPO_RW }}"
-#        #automatic_release_tag: latest
-#        prerelease: false
-#        generate_notes: true
-#        title: "${{ env.APP_VERSION }} (${{ env.git_sha_short }})"
-#
-#      uses: https://gitea.com/actions/gitea-release-action@v1
-#      # https://github.com/akkuman/gitea-release-action
-#      with:
-#        token: "${{ secrets.LOCAL_TOKEN_REPO_RW }}"
-#        tag_name: ${{ env.APP_VERSION }}
-#        prerelease: false
-#        name: "${{ env.APP_VERSION }} (${{ env.git_sha_short }})"
-#        files: |
-#          ${{ github.WORKSPACE }}/apks/${{vars.APK_NAME_ANTIMALWARE}}-signed.apk
-#          ${{ github.WORKSPACE }}/apks/${{vars.APK_NAME_ANTIMALWARE}}-signed.apk.sha512
+  release-codeberg:
+    name: "Release @Codeberg"
+    uses: https://codeberg.org/AXP-OS/actions/.gitea/workflows/release_mirror_main.yaml@main
+    runs-on: docker-node-latest
+    needs: build
+    secrets: inherit
+    with:
+      workflow_id: ${{ github.run_id }}
+      repo: ${{ github.event.repository.name }} # without org!
+      title: "!UNTESTED PRE-RELEASE! ${{ needs.build.outputs.APP_VERSION }}"
+      tag: ${{ needs.build.outputs.APP_VERSION }}
+      targetc: main
+      pre: true
+      body: |
+          # LoveLaceAV - The AXP.OS MalwareScanner
 
+          See:
+          - [Documentation](https://axpos.org/docs/knowledge/lovelace/)
+          - [Signature](https://axpos.org/docs/knowledge/signatures/#axpos-app-signature)
+
+          |APK|sha512|
+          |-|-|
+          |${{vars.APK_NAME_ANTIMALWARE}}-signed.apk|${{ needs.build.outputs.SHA_LAV }}|
+
+          [Signature](${{ vars.SIGNATURE_LINK }})
