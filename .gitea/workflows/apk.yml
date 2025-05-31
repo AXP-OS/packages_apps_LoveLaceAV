@@ -9,7 +9,7 @@ name: Build APK
 on:
   push:
     tags:
-      - v20**
+      - v**
   workflow_dispatch:  # button shown only when in default branch
 
 # NOT implemented in Gitea!
@@ -22,6 +22,7 @@ jobs:
     runs-on: docker-node-latest
     outputs:
       SHA_LAV: ${{ steps.hash.outputs.SHA_LAV }}
+      APP_VERSION: ${{ steps.hash.outputs.APP_VERSION }}
 
     steps:
 
@@ -50,21 +51,6 @@ jobs:
       uses: android-actions/setup-android@v3
       with:
         cmdline-tools-version: 12266719
-
-    # https://github.com/r0adkll/sign-android-release/issues/84#issuecomment-1885690080
-    - name: "Get & set app and build variables"
-      shell: bash
-      run: |
-        #BUILD_TOOL_VERSION=$(ls /root/.android/sdk/build-tools | tail -n 1)
-        #echo "BUILD_TOOL_VERSION=$BUILD_TOOL_VERSION" >> $GITHUB_ENV
-        #echo Last build tool version is: $BUILD_TOOL_VERSION
-
-        OVER=v$(date +%Y.%m.%d)
-        [ -z "$OVER" ] && echo "ERROR: empty version detected" && exit 3
-        echo "APP_VERSION=${OVER}" >> $GITHUB_ENV
-        git_sha_short=$(git rev-parse --short "$GITHUB_SHA")
-        echo "git_sha_short=$git_sha_short" >> $GITHUB_ENV
-        echo "APP version is: $OVER ($git_sha_short)"
 
     - name: Build Release APK
       run: |
@@ -96,7 +82,7 @@ jobs:
         REF_NAME=$(echo "${{ github.ref }}" | sed -e 's/refs\/heads\///' -e 's/refs\/tags\/v//' -e 's/release\/v//')
         echo "Cleaned name is ${REF_NAME}"
         echo "branch=${REF_NAME}" >> "$GITHUB_OUTPUT"
-        echo "APP_VERSION=v${REF_NAME}" >> $GITHUB_ENV
+        echo "APP_VERSION=v${REF_NAME}" >> $GITHUB_OUTPUT
 
     - name: Upload all files as artifact
       uses: actions/upload-artifact@v3
@@ -108,7 +94,6 @@ jobs:
         path: |
           ${{ github.WORKSPACE }}/apks/${{vars.APK_NAME_ANTIMALWARE}}-signed.apk
           ${{ github.WORKSPACE }}/apks/${{vars.APK_NAME_ANTIMALWARE}}-signed.apk.sha512
-
 
   release-codeberg:
     name: "Release @Codeberg"
