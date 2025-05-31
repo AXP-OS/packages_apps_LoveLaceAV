@@ -75,7 +75,10 @@ jobs:
     - name: Prep release
       id: hash
       run: |
+        export APKVER=${{vars.APK_NAME_ANTIMALWARE}}_${{ needs.build.outputs.APP_VERSION }}.apk
         cd apks
+
+        cp ${{vars.APK_NAME_ANTIMALWARE}}-signed.apk ${APKVER}
         sha512sum ${{vars.APK_NAME_ANTIMALWARE}}-signed.apk > ${{vars.APK_NAME_ANTIMALWARE}}-signed.apk.sha512
         echo "SHA_LAV=$(cat ${{vars.APK_NAME_ANTIMALWARE}}-signed.apk.sha512 | cut -d ' ' -f1)" >> $GITHUB_OUTPUT
 
@@ -92,6 +95,7 @@ jobs:
         retention-days: 1
         if-no-files-found: error
         path: |
+          ${{ github.WORKSPACE }}/apks/${{vars.APK_NAME_ANTIMALWARE}}_${{ needs.build.outputs.APP_VERSION }}.apk
           ${{ github.WORKSPACE }}/apks/${{vars.APK_NAME_ANTIMALWARE}}-signed.apk
           ${{ github.WORKSPACE }}/apks/${{vars.APK_NAME_ANTIMALWARE}}-signed.apk.sha512
 
@@ -130,3 +134,4 @@ jobs:
     with:
       workflow_id: ${{ github.run_id }}
       repo: ${{ github.event.repository.name }} # without org!
+      filepattern: ${{vars.APK_NAME_ANTIMALWARE}}_${{ needs.build.outputs.APP_VERSION }}.apk
