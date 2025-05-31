@@ -121,7 +121,7 @@ jobs:
       repo: ${{ github.event.repository.name }} # without org!
       title: "!UNTESTED PRE-RELEASE! ${{ needs.build.outputs.APP_VERSION }}"
       tag: ${{ needs.build.outputs.APP_VERSION }}
-      targetc: main
+      targetc: merge
       pre: true
       body: |
           # LoveLaceAV - The AXP.OS MalwareScanner
