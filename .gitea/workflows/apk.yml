@@ -85,7 +85,7 @@ jobs:
         echo "branch=${REF_NAME}" >> "$GITHUB_OUTPUT"
         echo "APP_VERSION=v${REF_NAME}" >> $GITHUB_OUTPUT
 
-        cp -v ${{vars.APK_NAME_ANTIMALWARE}}-signed.apk ${{vars.APK_NAME_ANTIMALWARE}}_${APP_VERSION}.apk || exit 3
+        cp -v ${{vars.APK_NAME_ANTIMALWARE}}-signed.apk ${{vars.APK_NAME_ANTIMALWARE}}_${REF_NAME}.apk || exit 3
 
     - name: Upload all files as artifact
       uses: actions/upload-artifact@v3
