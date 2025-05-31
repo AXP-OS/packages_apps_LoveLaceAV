@@ -121,10 +121,10 @@ jobs:
 
           [Signature](${{ vars.SIGNATURE_LINK }})
 
-  release-fdroid:
-    name: "Release @F-Droid"
+  release-fdroid-cutting:
+    name: "Release @F-Droid Cutting"
     uses: https://codeberg.org/AXP-OS/actions/.gitea/workflows/release_fdroid-cutting.yaml@main
-    runs-on: docker-node-latest
+    runs-on: fdroid-cutting
     needs: build
     secrets: inherit
     with:
