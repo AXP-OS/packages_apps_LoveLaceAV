@@ -95,7 +95,7 @@ jobs:
         retention-days: 1
         if-no-files-found: error
         path: |
-          ${{ github.WORKSPACE }}/apks/${{vars.APK_NAME_ANTIMALWARE}}_${{ needs.build.outputs.APP_VERSION }}.apk
+          ${{ github.WORKSPACE }}/apks/${{vars.APK_NAME_ANTIMALWARE}}_${{ steps.hash.outputs.APP_VERSION }}.apk
           ${{ github.WORKSPACE }}/apks/${{vars.APK_NAME_ANTIMALWARE}}-signed.apk
           ${{ github.WORKSPACE }}/apks/${{vars.APK_NAME_ANTIMALWARE}}-signed.apk.sha512
 
