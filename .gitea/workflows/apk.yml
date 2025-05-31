@@ -120,3 +120,13 @@ jobs:
           |${{vars.APK_NAME_ANTIMALWARE}}-signed.apk|${{ needs.build.outputs.SHA_LAV }}|
 
           [Signature](${{ vars.SIGNATURE_LINK }})
+
+  release-fdroid:
+    name: "Release @F-Droid"
+    uses: https://codeberg.org/AXP-OS/actions/.gitea/workflows/release_fdroid-cutting.yaml@main
+    runs-on: docker-node-latest
+    needs: build
+    secrets: inherit
+    with:
+      workflow_id: ${{ github.run_id }}
+      repo: ${{ github.event.repository.name }} # without org!
