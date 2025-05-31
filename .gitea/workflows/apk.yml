@@ -75,10 +75,9 @@ jobs:
     - name: Prep release
       id: hash
       run: |
-        export APKVER=${{vars.APK_NAME_ANTIMALWARE}}_${{ needs.build.outputs.APP_VERSION }}.apk
         cd apks
 
-        cp ${{vars.APK_NAME_ANTIMALWARE}}-signed.apk ${APKVER}
+        cp -v ${{vars.APK_NAME_ANTIMALWARE}}-signed.apk ${{vars.APK_NAME_ANTIMALWARE}}_${{ needs.build.outputs.APP_VERSION }}.apk || exit 3
         sha512sum ${{vars.APK_NAME_ANTIMALWARE}}-signed.apk > ${{vars.APK_NAME_ANTIMALWARE}}-signed.apk.sha512
         echo "SHA_LAV=$(cat ${{vars.APK_NAME_ANTIMALWARE}}-signed.apk.sha512 | cut -d ' ' -f1)" >> $GITHUB_OUTPUT
 
