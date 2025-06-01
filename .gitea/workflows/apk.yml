@@ -8,8 +8,6 @@ name: Build APK
 
 on:
   push:
-    tags:
-      - v**
     paths:
       - 'app/build.gradle'
   workflow_dispatch:  # button shown only when in default branch
