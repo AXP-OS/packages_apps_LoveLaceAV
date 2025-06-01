@@ -10,6 +10,8 @@ on:
   push:
     tags:
       - v**
+    paths:
+      - app/build.gradle
   workflow_dispatch:  # button shown only when in default branch
 
 # NOT implemented in Gitea!
@@ -75,6 +77,8 @@ jobs:
     - name: Prep release
       id: hash
       run: |
+        APP_VERSION=$(grep -E "versionName " app/build.gradle | cut -d '"' -f 2)
+
         cd apks
 
         sha512sum ${{vars.APK_NAME_ANTIMALWARE}}-signed.apk > ${{vars.APK_NAME_ANTIMALWARE}}-signed.apk.sha512
@@ -83,9 +87,10 @@ jobs:
         REF_NAME=$(echo "${{ github.ref }}" | sed -e 's/refs\/heads\///' -e 's/refs\/tags\/v//' -e 's/release\/v//')
         echo "Cleaned name is ${REF_NAME}"
         echo "branch=${REF_NAME}" >> "$GITHUB_OUTPUT"
-        echo "APP_VERSION=${REF_NAME}" >> $GITHUB_OUTPUT
 
-        cp -v ${{vars.APK_NAME_ANTIMALWARE}}-signed.apk ${{vars.APK_NAME_ANTIMALWARE}}_${REF_NAME}.apk || exit 3
+        echo "APP_VERSION="$APP_VERSION" >> $GITHUB_OUTPUT
+
+        cp -v ${{vars.APK_NAME_ANTIMALWARE}}-signed.apk ${{vars.APK_NAME_ANTIMALWARE}}_${APP_VERSION}.apk || exit 3
 
     - name: Upload all files as artifact
       uses: actions/upload-artifact@v3
