@@ -51,7 +51,7 @@ jobs:
       uses: android-actions/setup-android@v3
       with:
         cmdline-tools-version: 13114758
-        packages: tools platform-tools build-tools
+        packages: "tools platform-tools build-tools;35.0.1"
 
     - name: Build Release APK
       run: |
