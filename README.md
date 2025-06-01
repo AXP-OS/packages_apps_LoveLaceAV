@@ -36,7 +36,7 @@ Signature Databases
 -------------------
 
 - Default database:
-	- Signing key: `EDA3375DBF4B7384`
+	- Signing key: `14C17E7F99EABF3F`
 	- Database: https://lav.axpos.org/db
 - Hypatia-Fork @codeberg:
 	- Signing key:`5298C0C0C3E73288`
