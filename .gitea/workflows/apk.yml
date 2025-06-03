@@ -140,6 +140,36 @@ jobs:
 
           [Signature](${{ vars.SIGNATURE_LINK }})
 
+  release-github:
+    name: "Release @github"
+    uses: https://codeberg.org/AXP-OS/actions/.gitea/workflows/release_mirror_second.yaml@main
+    runs-on: docker-node-latest
+    needs: [ build, release-codeberg ]
+    secrets: inherit
+    with:
+      workflow_id: ${{ github.run_id }}
+      repo: ${{ github.event.repository.name }} # without org!
+      title: "!UNTESTED PRE-RELEASE! ${{ needs.build.outputs.APP_VERSION }}"
+      tag: ${{ needs.build.outputs.APP_VERSION }}
+      targetc: merge
+      pre: true
+      #filepattern: '*.apk'
+      body: >-
+          # LoveLaceAV - The AXP.OS MalwareScanner
+
+          See:
+          - [Documentation](https://axpos.org/docs/knowledge/lovelaceav/)
+          - [Signature](https://axpos.org/docs/knowledge/signatures/#axpos-app-signature)
+
+          |APK|sha512|
+          |-|-|
+          |${{vars.APK_NAME_ANTIMALWARE}}-signed.apk|${{ needs.build.outputs.SHA_LAV }}|
+
+          [Signature](${{ vars.SIGNATURE_LINK }})
+      filelist: >-
+        ${{vars.APK_NAME_ANTIMALWARE}}_${{ steps.hash.outputs.APP_VERSION }}.apk
+        ${{vars.APK_NAME_ANTIMALWARE}}_${{ steps.hash.outputs.APP_VERSION }}.apk.sha512
+
   release-fdroid-cutting:
     name: "Release @F-Droid Cutting"
     uses: https://codeberg.org/AXP-OS/actions/.gitea/workflows/release_fdroid-cutting.yaml@main
