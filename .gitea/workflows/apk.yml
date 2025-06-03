@@ -131,7 +131,7 @@ jobs:
           # LoveLaceAV - The AXP.OS MalwareScanner
 
           See:
-          - [Documentation](https://axpos.org/docs/knowledge/lovelace/)
+          - [Documentation](https://axpos.org/docs/knowledge/lovelaceav/)
           - [Signature](https://axpos.org/docs/knowledge/signatures/#axpos-app-signature)
 
           |APK|sha512|
