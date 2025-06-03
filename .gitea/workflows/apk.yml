@@ -155,16 +155,16 @@ jobs:
       pre: true
       #filepattern: '*.apk'
       body: >-
-          # LoveLaceAV - The AXP.OS MalwareScanner
-
-          See:
-          - [Documentation](https://axpos.org/docs/knowledge/lovelaceav/)
-          - [Signature](https://axpos.org/docs/knowledge/signatures/#axpos-app-signature)
-
-          |APK|sha512|
-          |-|-|
-          |${{vars.APK_NAME_ANTIMALWARE}}-signed.apk|${{ needs.build.outputs.SHA_LAV }}|
-
+          # LoveLaceAV - The AXP.OS MalwareScanner\n
+          \n
+          See:\n
+          - [Documentation](https://axpos.org/docs/knowledge/lovelaceav/)\n
+          - [Signature](https://axpos.org/docs/knowledge/signatures/#axpos-app-signature)\n
+          \n
+          |APK|sha512|\n
+          |-|-|\n
+          |${{vars.APK_NAME_ANTIMALWARE}}-signed.apk|${{ needs.build.outputs.SHA_LAV }}|\n
+          \n
           [Signature](${{ vars.SIGNATURE_LINK }})
       filelist: >-
         ${{vars.APK_NAME_ANTIMALWARE}}_${{ steps.hash.outputs.APP_VERSION }}.apk
