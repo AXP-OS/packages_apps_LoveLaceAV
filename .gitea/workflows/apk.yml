@@ -138,8 +138,6 @@ jobs:
           |-|-|
           |${{vars.APK_NAME_ANTIMALWARE}}-signed.apk|${{ needs.build.outputs.SHA_LAV }}|
 
-          [Signature](${{ vars.SIGNATURE_LINK }})
-
   release-github:
     name: "Release @github"
     uses: https://codeberg.org/AXP-OS/actions/.gitea/workflows/release_mirror_second.yaml@main
@@ -164,8 +162,7 @@ jobs:
           |APK|sha512|\n
           |-|-|\n
           |${{vars.APK_NAME_ANTIMALWARE}}-signed.apk|${{ needs.build.outputs.SHA_LAV }}|\n
-          \n
-          [Signature](${{ vars.SIGNATURE_LINK }})
+
       filelist: >-
         ${{vars.APK_NAME_ANTIMALWARE}}-signed.apk
         ${{vars.APK_NAME_ANTIMALWARE}}-signed.apk.sha512
