@@ -149,4 +149,3 @@ jobs:
     with:
       workflow_id: ${{ github.run_id }}
       repo: ${{ github.event.repository.name }} # without org!
-      filepattern: ${{vars.APK_NAME_ANTIMALWARE}}_${{ needs.build.outputs.APP_VERSION }}.apk
