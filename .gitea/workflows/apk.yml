@@ -90,6 +90,7 @@ jobs:
         echo "APP_VERSION=$APP_VERSION" >> $GITHUB_OUTPUT
 
         cp -v ${{vars.APK_NAME_ANTIMALWARE}}-signed.apk ${{vars.APK_NAME_ANTIMALWARE}}_${APP_VERSION}.apk || exit 3
+        sha512sum ${{vars.APK_NAME_ANTIMALWARE}}_${APP_VERSION}.apk > ${{vars.APK_NAME_ANTIMALWARE}}_${APP_VERSION}.apk.sha512
 
     - name: Upload all files as artifact
       uses: actions/upload-artifact@v3
@@ -99,9 +100,19 @@ jobs:
         retention-days: 1
         if-no-files-found: error
         path: |
-          ${{ github.WORKSPACE }}/apks/${{vars.APK_NAME_ANTIMALWARE}}_*.apk
           ${{ github.WORKSPACE }}/apks/${{vars.APK_NAME_ANTIMALWARE}}-signed.apk
           ${{ github.WORKSPACE }}/apks/${{vars.APK_NAME_ANTIMALWARE}}-signed.apk.sha512
+
+    - name: Upload F-Droid apk as artifact
+      uses: actions/upload-artifact@v3
+      id: upload
+      with:
+        name: release-fdroid
+        retention-days: 1
+        if-no-files-found: error
+        path: |
+          ${{ github.WORKSPACE }}/apks/${{vars.APK_NAME_ANTIMALWARE}}_${{ steps.hash.outputs.APP_VERSION }}.apk
+          ${{ github.WORKSPACE }}/apks/${{vars.APK_NAME_ANTIMALWARE}}_${{ steps.hash.outputs.APP_VERSION }}.apk.sha512
 
   release-codeberg:
     name: "Release @Codeberg"
