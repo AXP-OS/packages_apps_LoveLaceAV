@@ -1,0 +1,34 @@
+---
+
+name: "Sync with Upstream"
+
+on:
+  schedule:
+    - cron:  '6 21 * * 2'  # run once per week
+  workflow_dispatch:
+
+# Sets permissions of the GITHUB_TOKEN to allow pushing via github token
+#permissions:
+#  contents: write # allow git push
+
+jobs:
+  call_org_workflow:
+    name: "Calling AXP workflow"
+    runs-on: docker-node-latest
+    uses: https://codeberg.org/AXP-OS/actions/.gitea/workflows/sync_upstream.yaml@main
+    with:
+        remote-server: github.com
+        remote-repo: MaintainTeam/Hypatia
+        remote-branch:  stable
+        local-repo: ${{ github.repository_owner }}/${{ github.event.repository.name }}
+        local-branch: merge
+        dryrun: true  # <- set to false after a test run
+    secrets: inherit
+
+  call_build_wf:
+    name: "If new commits merged, trigger APK build"
+    runs-on: docker-node-latest
+    needs: call_org_workflow
+    if: ${{ needs.call_org_workflow.outputs.cc_res == 'True' }}
+    uses: ./.gitea/workflows/apk.yml@main
+    secrets: inherit
