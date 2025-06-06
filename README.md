@@ -5,6 +5,9 @@ Overview
 --------
 LoveLaceAV is a FOSS malware scanner for Android. It is powered by ClamAV style signature databases and forked from [Hypatia](https://codeberg.org/divested-mobile/hypatia) made by the Divested Computing Group.
 
+See all the details at the [LoveLaceAV website](https://axpos.org/lovelace)
+
+
 [<img src="https://hosted.weblate.org/widget/divestos/hypatia/287x66-grey.png"
      alt="Translation status"
      height="66">](https://hosted.weblate.org/projects/maintainteam/hypatia/)
@@ -22,6 +25,12 @@ Features
 - Minimal dependencies: the app only uses libraries when necessary
 - Signature databases can be enabled/disabled at the users demand
 
+Download
+--------
+While it is possible to download LoveLaceAV directly it is strongly recommended using the public **AXP.OS F-Droid repo**.
+
+- Direct download: [here](https://codeberg.org/AXP-OS/packages_apps_LoveLaceAV/releases), [mirror](https://github.com/AXP-OS/packages_apps_LoveLaceAV/releases)
+- F-Droid repo: [here](https://axpos.org/F-Droid)
 
 Troubleshooting
 ------------------
@@ -105,7 +114,7 @@ Credits
 - GPGDetachedSignatureVerifier.java (GPL-2.0-or-later): Federico Fissore, Arduino LLC
 - Petra Mirelli for the app banner/feature graphic and various tweaks.
 - @eloitor: Translations work
-- Icons: Google/Android/AOSP, License: Apache 2.0, https://google.github.io/material-design-icons/
+- Various for signatures which can be found at [https://lav.axpos.org/db](https://lav.axpos.org/db)
 
 Translations
 ------------
