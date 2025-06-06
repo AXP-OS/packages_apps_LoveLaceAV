@@ -41,18 +41,7 @@ The first thing to check is if you have extended databases enabled. Extended dat
 - **Unable to download databases:**
 If this occurs, try tapping the ellipsis in the top right of the main screen and tap `Database server override`. This uses a mirror database in case the main database is down.
 - **There are false positives:**
-This occasionally occurs due to the nature of bloom filters. If you believe there is a false positive, first, rescan. This will sometimes fix the false positive. And if this still returns a false positive, scan the file to [VirusTotal](https://www.virustotal.com/gui/home/upload), and this will tell you if you truly have a false positive or rather some malware.
-
-Signature Databases
--------------------
-We currently have 2 working signature database server provider. Both Signing keys are `5298C0C0C3E73288`
-
-- [Codeberg](https://codeberg.org/MaintainTeam/HypatiaDatabases/)
-  - to use in app & see generation reports: https://maintainteam.codeberg.page/HypatiaDatabases/
-- [GitHub](https://github.com/MaintainTeam/HypatiaDatabases/)
-  - to use in app & see generation reports: https://maintainteam.github.io/HypatiaDatabases/
-
-Database updates occurs in per 2 day about at 01 AM - 03 AM in both provider to `unsigned` branch. Then signing process made by self-hosted CI and push to `gh-pages`/`pages` branch about 06 AM. Each provider will generate static web-server from these branches. (UTC)
+This occasionally occurs due to the nature of bloom filters. If you believe there is a false positive, first, rescan. This will sometimes fix the false positive. And if this still returns a false positive, scan the file to [VirusTotal](https://www.virustotal.com/gui/home/upload), and this will tell you if you truly have a false positive or rather some malware. 
 
 APK Info & Security
 --------------------
