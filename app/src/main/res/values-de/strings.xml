@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_license">Lizenz: GPL-3.0</string>
-    <string name="app_copyright">Urheberrecht 2017-2024 Divested Computing Group</string>
+    <string name="app_copyright">Urheberrecht 2017-2024 Divested Computing Group\nCopyleft 2025 MaintainTeam Organization\nCopyleft 2025 The AXP.OS Project</string>
     <string name="app_version">Version: %s</string>
     <string name="app_db_type_clamav">Basierend auf Signaturen im Stil von ClamAV</string>
     <string name="lblOnionRoutingToggle">Downloads via Tor</string>

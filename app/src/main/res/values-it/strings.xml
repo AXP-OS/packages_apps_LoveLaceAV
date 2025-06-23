@@ -79,5 +79,5 @@
     <string name="accessibility_service_label">Scanner di link di LoveLaceAV</string>
     <string name="accessibility_service_description">Estrae i domini dal testo visualizzato a schermo verifica se compaiono su una lista nera</string>
     <string name="lblLinkScannerToggle">Scanner di link</string>
-    <string name="app_copyright">Copyright 2017-2024 di Divested Computing Group</string>
+    <string name="app_copyright">Copyright 2017-2024 di Divested Computing Group\nCopyleft 2025 MaintainTeam Organization\nCopyleft 2025 The AXP.OS Project</string>
 </resources>

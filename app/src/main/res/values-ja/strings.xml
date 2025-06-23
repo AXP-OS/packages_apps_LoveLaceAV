@@ -21,7 +21,7 @@
     <string name="lblExtendedDatabaseToggle">データベースを拡張する</string>
     <string name="confirm_update_title">ダウンロードを確認</string>
     <string name="lblUpdateRunning">アクションをスキップして、更新を実行しています。</string>
-    <string name="app_copyright">Copyright 2017-2024 Divested Computing Group</string>
+    <string name="app_copyright">Copyright 2017-2024 Divested Computing Group\nCopyleft 2025 MaintainTeam Organization\nCopyleft 2025 The AXP.OS Project</string>
     <string name="app_version">バージョン: %s</string>
     <string name="lblOnionRoutingToggle">Tor経由でダウンロード</string>
     <string name="app_db_type_clamav">ClamAVシグネチャで強化されています</string>

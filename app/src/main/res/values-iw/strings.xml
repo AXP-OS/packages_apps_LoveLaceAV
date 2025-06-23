@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_disclaimer">זהו רק סורק תוכנות זדוניות שמשווה קבצים ל-hashs שנמצאו בעבר. לא שרביט קסמים ששומר על כל האנדרואיד שלך מאובטח במיוחד. אתה צריך להיזהר במה שאתה מוריד/לוחץ!</string>
-    <string name="app_copyright">זכויות יוצרים 2017-2024 Disested Computing Group\nCopyleft 2025 MaintainTeam Organization</string>
+    <string name="app_copyright">זכויות יוצרים 2017-2024 Disested Computing Group\nCopyleft 2025 MaintainTeam Organization\nCopyleft 2025 MaintainTeam Organization\nCopyleft 2025 The AXP.OS Project</string>
     <string name="lblNotificationRealtimeTitle">סריקה בזמן אמת</string>
     <string name="lblRealtimeScannerToggle">סורק בזמן אמת</string>
     <string name="main_hashing_done">גיבובים מחושבים עבור כל הקבצים</string>

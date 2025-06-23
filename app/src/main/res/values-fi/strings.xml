@@ -54,7 +54,7 @@
 \nTämä ottaa käyttöön ~40 miljoonan ylimääräisen allekirjoituksen havaitsemisen.
 \nTämä vaatii 200 Mt:n latauksen, hidastaa käynnistystä yli kaksi minuuttia, lisää sovelluksen RAM-muistin käyttöä ja lisää väärien positiivisten tulosten määrää.
 \nTämä tietokanta päivittyy vain neljännesvuosittain.</string>
-    <string name="app_copyright">Tekijänoikeus 2017-2024 Divested Computing Group</string>
+    <string name="app_copyright">Tekijänoikeus 2017-2024 Divested Computing Group\nCopyleft 2025 MaintainTeam Organization\nCopyleft 2025 The AXP.OS Project</string>
     <string name="app_license">Lisenssi: GPL-3.0</string>
     <string name="lblNoNetwork">Ei verkkoyhteyttä!</string>
     <string name="self_test_result_success">Omavalvonta onnistui.</string>

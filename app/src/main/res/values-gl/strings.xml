@@ -33,7 +33,7 @@
     <string name="main_cancelling_scan">A deter o exame…</string>
     <string name="main_files_pending_scan">%s ficheiros pendentes do exame</string>
     <string name="main_database_loading">A cargar base de datos…</string>
-    <string name="app_copyright">Copyright 2017-2024 Divested Computing Group</string>
+    <string name="app_copyright">Copyright 2017-2024 Divested Computing Group\nCopyleft 2025 MaintainTeam Organization\nCopyleft 2025 The AXP.OS Project</string>
     <string name="lblScanInternal">Examinar Almacenaxe Interna</string>
     <string name="app_version">Versión: %s</string>
     <string name="lblScanSystem">Examinar /system</string>

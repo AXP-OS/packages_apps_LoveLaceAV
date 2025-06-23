@@ -15,7 +15,7 @@
     <string name="lblNotificationRealtimeText">سيتم اكتشاف البرامج الخبيثة المعروفة في الوقت الفعلي</string>
     <string name="lblNotificationRealtimeStopped">LoveLaceAV: توقف الفحص في الوقت الفعلي</string>
     <string name="main_no_database_available">لا توجد قاعدة بيانات متاحة، لا يتم الفحص…</string>
-    <string name="app_copyright">حقوق الطبع والنشر 2017-2024 لDivested Computing Group</string>
+    <string name="app_copyright">حقوق الطبع والنشر 2017-2024 لDivested Computing Group\nCopyleft 2025 MaintainTeam Organization\nCopyleft 2025 The AXP.OS Project</string>
     <string name="app_db_type_clamav">مدعوم بتوقيعات نمط ClamAV</string>
     <string name="lblScanExternal">افحص التخزين الخارجي</string>
     <string name="lblNotificationMalwareDetectionTitle">اكتشاف البرامج الخبيثة</string>

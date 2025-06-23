@@ -2,7 +2,7 @@
 <resources>
     <string name="confirm_link_scanner_summary">[PILIHAN INI MASIH DALAM TAHAP EKSPERIMENTAL]\nPilihan ini akan mengunduh pangkalan data tambahan domain-domain.\nSegala domain yang terdeteksi pada layar isi akan diperiksa menurut pangkalan data.\nHal ini membutuhkan izin aksesibilitas secara manual.\nPilihan ini dapat memberikan pengaruh yang signifikan pada layar yang menampilkan teks dalam jumlah besar.</string>
     <string name="lblDatabaseServer">Peladen pangkalan-data mengambil alih</string>
-    <string name="app_copyright">Hak Cipta 2017–2024 Divested Computing Group</string>
+    <string name="app_copyright">Hak Cipta 2017–2024 Divested Computing Group\nCopyleft 2025 MaintainTeam Organization\nCopyleft 2025 The AXP.OS Project</string>
     <string name="app_license">Lisensi: GPL-3.0</string>
     <string name="app_version">Versi: %s</string>
     <string name="app_db_type_clamav">Diberdayakan oleh tanda tangan ClamAV</string>
