@@ -148,5 +148,6 @@ Notices
 -------
 - Divested Computing Group is not affiliated with Cisco or ESET
 - LoveLaceAV is not sponsored or endorsed by Cisco or ESET
+- MaintainTeam is not affiliated with Cisco or ESET
 
 
