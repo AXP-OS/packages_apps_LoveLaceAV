@@ -1,4 +1,4 @@
-<p>Hypatia es el primer escáner de código malicioso FOSS del mundo para Android. Funciona con bases de datos de firmas al estilo ClamAV.</p>
+<p>LoveLaceAV es un escáner de malware FOSS para Android. Funciona con bases de datos de firmas al estilo ClamAV y es una bifurcación de la aplicación Hypatia (descatalogada) creada por Divested Computing Group.</p>
 
 <b>Características</b>
 <ul>

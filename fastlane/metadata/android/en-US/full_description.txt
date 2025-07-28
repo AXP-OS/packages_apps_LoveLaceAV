@@ -1,5 +1,4 @@
-<p>LoveLaceAV is the worlds first FOSS malware scanner for Android. It is powered by ClamAV style signature databases.</p>
-<p>This is a fork of the original (and discontinued) Hypatia app</b></p>
+<p>LoveLaceAV is a FOSS malware scanner for Android. It is powered by ClamAV style signature databases and forked from the (discontinued) Hypatia app made by the Divested Computing Group.</p>
 
 <b>Features</b>
 <ul>

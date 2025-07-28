@@ -1,10 +1,10 @@
-<p>Hypatia ist der weltweit erste FOSS-Malwarescanner für Android. Er basiert auf Signatur-Datenbanken im Stil von ClamAV.</p>
+<p>LoveLaceAV ist ein FOSS-Malware-Scanner für Android. Er basiert auf Signaturdatenbanken im ClamAV-Stil und ist eine Abspaltung der (eingestellten) Hypatia-App der Divested Computing Group.</p>
 
 <b>Funktionen</b>
 <ul>
 <li>Nahezu keine Auswirkungen auf den Akku: Sie werden keinerlei Auswirkungen auf den Akku bemerken</li>
 <li>Extrem schnell: kleine Dateien (1MB) werden in 20ms gescannt, große Dateien (40MB) in 1000ms.</li>
-<li>Speichereffizient: mit den standardmäßig aktivierten Datenbanken verbraucht Hypatia weniger als 120MB.</li>
+<li>Speichereffizient: mit den standardmäßig aktivierten Datenbanken verbraucht LoveLaceAV weniger als 120MB.</li>
 <li>Manueller Scan: erlaubt die Auswahl von /system, internem Speicher, externem Speicher und installierten Apps</li>
 <li>Echtzeit-Scanner: kann Malware direkt bei neugeschriebenen oder unbenannten Dateien im internen Speicher erkennen</li>
 <li>Vollständig offline: Das Internet wird nur zum Herunterladen von Signatur-Datenbanken verwendet, die Dateien verlassen niemals Ihr Gerät</li>
