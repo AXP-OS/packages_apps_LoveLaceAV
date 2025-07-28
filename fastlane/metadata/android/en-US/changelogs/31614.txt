@@ -1,0 +1,6 @@
+- repo: update fastlane icons & desc
+- ui: Log matches and domains in main app screen.
+- ui: show signature count in main screen
+- main: use new LoveLaceAV database uri
+- main: updating copyright
+- main: re-branding app and icons
