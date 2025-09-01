@@ -1,1 +1,1 @@
-last_ansible_trigger_date=2025-09-01_15:32:32
+last_ansible_trigger_date=$(date +%F_%T)
