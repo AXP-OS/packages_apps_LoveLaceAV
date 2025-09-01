@@ -10,6 +10,7 @@ on:
   push:
     paths:
       - 'app/build.gradle'
+      - 'trigger-build.txt'
   workflow_dispatch:  # button shown only when in default branch
 
 # NOT implemented in Gitea!
